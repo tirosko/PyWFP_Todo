@@ -1,0 +1,1 @@
+Ako nainštalovať Flask prostredie z informácii Geek4geeks
