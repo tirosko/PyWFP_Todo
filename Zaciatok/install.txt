@@ -1,0 +1,2 @@
+Vytvoriť .venv 
+pip install flask
