@@ -12,9 +12,21 @@ https://www.geeksforgeeks.org/python/flask-tutorial/
 Flask je ľahký webový framework používaný na tvorbu webových aplikácií a API. Nasleduje minimalistický dizajn a poskytuje základné funkcie ako smerovanie, spracovanie požiadaviek a renderovanie šablón, pričom vývojárom umožňuje pridávať rozšírenia podľa potreby. Vďaka svojej jednoduchosti a flexibilite sa široko používa na tvorbu malých až stredne veľkých webových aplikácií.
 
 Inštalácia  
-pip install flask
+pip install flask  
+Pozor inštalácia flask by mala byť urobená do .venv - aby sa neinštaloval centrálne
+pip freeze > requirements.txt
 
 Prvá aplikácia  
 https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/  
 
- 
+Pokračovanie - routing  
+https://www.geeksforgeeks.org/python/flask-app-routing/
+
+
+
+
+
+Finále - Todo list app using Flask | Python
+https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/
+
+
