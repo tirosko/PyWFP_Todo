@@ -1,3 +1,3 @@
-# ÚVod do vývoja WEB aplikácii
+# Úvod do vývoja WEB aplikácii
   
-Využije framework Flask pre úvod
+Pokúsime sa využiť Python Framework Flask pre úvod do problematiky

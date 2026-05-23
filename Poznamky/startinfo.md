@@ -5,3 +5,6 @@ https://www.geeksforgeeks.org/web-tech/web-technology/
 https://www.geeksforgeeks.org/websites-apps/web-development-prerequisites/
 prečo sa učiť WEB development
 https://www.geeksforgeeks.org/blogs/why-learning-web-development-is-a-great-career-move-in-2025/
+
+Flask - Tutorial
+https://www.geeksforgeeks.org/python/flask-tutorial/
