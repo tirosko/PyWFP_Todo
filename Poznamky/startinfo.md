@@ -1,14 +1,14 @@
-Ako nainštalovať Flask prostredie z informácii Geek4geeks
+# Ako nainštalovať Flask prostredie z informácii Geek4geeks
 
 Teória
-https://www.geeksforgeeks.org/web-tech/web-technology/
-https://www.geeksforgeeks.org/websites-apps/web-development-prerequisites/  
+<https://www.geeksforgeeks.org/web-tech/web-technology/>
+<https://www.geeksforgeeks.org/websites-apps/web-development-prerequisites/>  
 
 prečo sa učiť WEB development
-https://www.geeksforgeeks.org/blogs/why-learning-web-development-is-a-great-career-move-in-2025/
+<https://www.geeksforgeeks.org/blogs/why-learning-web-development-is-a-great-career-move-in-2025/>  
 
 Flask - Tutorial
-https://www.geeksforgeeks.org/python/flask-tutorial/  
+<https://www.geeksforgeeks.org/python/flask-tutorial/>  
 Flask je ľahký webový framework používaný na tvorbu webových aplikácií a API. Nasleduje minimalistický dizajn a poskytuje základné funkcie ako smerovanie, spracovanie požiadaviek a renderovanie šablón, pričom vývojárom umožňuje pridávať rozšírenia podľa potreby. Vďaka svojej jednoduchosti a flexibilite sa široko používa na tvorbu malých až stredne veľkých webových aplikácií.
 
 Inštalácia  
@@ -17,16 +17,10 @@ Pozor inštalácia flask by mala byť urobená do .venv - aby sa neinštaloval c
 pip freeze > requirements.txt
 
 Prvá aplikácia  
-https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/  
+<https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/>  
 
 Pokračovanie - routing  
-https://www.geeksforgeeks.org/python/flask-app-routing/
-
-
-
-
+<https://www.geeksforgeeks.org/python/flask-app-routing/>  
 
 Finále - Todo list app using Flask | Python
-https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/
-
-
+<https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/>  
