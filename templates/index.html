@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <title>ToDo zoznam</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+        li.done { text-decoration: line-through; color: #777; }
+        form { margin-bottom: 1rem; }
+        button, a { margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <h1>ToDo zoznam</h1>
+
+    <form action="{{ url_for('add') }}" method="post">
+        <input type="text" name="todo" placeholder="Nová úloha" required>
+        <button type="submit">Pridať</button>
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+            <li class="{% if todo.done %}done{% endif %}">
+                {{ loop.index }}. {{ todo.text }}
+                <a href="{{ url_for('toggle', idx=loop.index0) }}">
+                    {% if todo.done %}Obnoviť{% else %}Hotovo{% endif %}
+                </a>
+                <a href="{{ url_for('delete', idx=loop.index0) }}">Zmazať</a>
+            </li>
+        {% else %}
+            <li>Žiadne úlohy.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
