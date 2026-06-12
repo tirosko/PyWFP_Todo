@@ -35,4 +35,3 @@ pip install git+<https://github.com/tvoj-username/tvoj-projekt.git@v1.1.0-dev.1>
 
 Alebo stabilná verzia
 pip install git+<https://github.com/tvoj-username/tvoj-projekt.git@v1.0.0>
-
