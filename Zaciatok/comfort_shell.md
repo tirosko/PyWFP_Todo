@@ -33,7 +33,7 @@ Why this works:
 * Git stays clean
 * Works in VS Code, PyCharm, and GitHub Codespaces
 
-**2) 🐍 Python Workflow (fast, predictable, zero headaches)**
+**2) Python Workflow (fast, predictable, zero headaches)**
 
 **Create project**
 mkdir project-name
@@ -66,7 +66,7 @@ black .
 
 isort .
 
-**3) 🐳 Docker Workflow (simple, fast, production‑ready)**
+**3) Docker Workflow (simple, fast, production‑ready)**
 
 **Dockerfile (Python slim + caching)**
 
@@ -106,14 +106,12 @@ docker build -t myapp .
 
 docker run -p 8000:8000 myapp
 
-**4) 🧬 Git Workflow (clean, safe, modern)**
+**4) Git Workflow (clean, safe, modern)**
 
 **Initialize**
 
 git init
-
 git add .
-
 git commit -m "Initial commit"
 
 **Create new branch**
@@ -123,7 +121,6 @@ git checkout -b feature/my-feature
 **Commit often**
 
 git add .
-
 git commit -m "Add new logic"
 
 **Push**
@@ -136,26 +133,19 @@ git push -u origin feature/my-feature
 * GitHub Actions can run tests
 * safe for collaboration
 
-**5) 🧰 Comfort Shell Enhancements (your environment becomes a superpower)**
+**5) Comfort Shell Enhancements (your environment becomes a superpower)**
 
 Because you use WSL Comfort Shell, you get:
 
 **Aliases**
 
 alias gs="git status"
-
 alias gc="git commit -m"
-
 alias gp="git push"
-
 alias gco="git checkout"
-
 alias dcu="docker compose up"
-
 alias dcd="docker compose down"
-
 alias py="python3"
-
 alias act="source .venv/bin/activate"
 
 **fzf-powered navigation**
@@ -169,12 +159,10 @@ alias act="source .venv/bin/activate"
 * shows Python venv
 * shows Docker context
 
-**6) 🧪 Optional: Add Pre‑commit Hooks (automatic formatting)**
+**6) Optional: Add Pre‑commit Hooks (automatic formatting)**
 
 pip install pre-commit
-
 pre-commit install
-
 .pre-commit-config.yaml:
 
 repos:
@@ -197,12 +185,11 @@ hooks:
 
 Now every commit is automatically formatted.
 
-**7) 🧠 Your workflow in practice (the real daily routine)**
+**7) Your workflow in practice (the real daily routine)**
 
 **Start work**
 
 cd project-name
-
 act
 
 **Run app**
@@ -220,9 +207,7 @@ docker compose up
 **Commit**
 
 git add .
-
 git commit -m "Fix bug"
-
 git push
 
 **Switch projects instantly**
@@ -267,63 +252,50 @@ Here is a **complete, production‑ready Flask project template** designed for y
 
 I’m giving you **exact files**, **commands**, and **workflow steps** — all optimized for your Python/Docker/Git setup.
 
-**🚀 FLASK PROJECT TEMPLATE (WSL Comfort Shell Edition)**
+** FLASK PROJECT TEMPLATE (WSL Comfort Shell Edition)**
 
-**🧱 1) Folder Structure (clean, scalable)**
+** 1) Folder Structure (clean, scalable)**
 
 flask-app/
 
 ![](data:image/png;base64...)
 
-**🧩 2) Flask Application Files**
+** 2) Flask Application Files**
 
 **run.py**
 
 from src.app import create\_app
-
 app = create\_app()
-
 if \_\_name\_\_ == "\_\_main\_\_":
-
-app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 **src/app/init.py**
 
 from flask import Flask
-
 def create\_app():
-
-app = Flask(\_\_name\_\_)
-
-app.config.from\_object("src.app.config.Config")
+    app = Flask(\_\_name\_\_)
+    app.config.from\_object("src.app.config.Config")
 
 from .routes import bp as routes\_bp
-
 app.register\_blueprint(routes\_bp)
-
 return app
 
 **src/app/routes.py**
 
 from flask import Blueprint, jsonify
-
 bp = Blueprint("routes", \_\_name\_\_)
-
 @bp.get("/")
 
 def index():
-
-return jsonify({"message": "Hello from Flask!"})
+    return jsonify({"message": "Hello from Flask!"})
 
 **src/app/config.py**
 
 class Config:
-
 DEBUG = True
-
 SECRET\_KEY = "change-me"
 
-**🧪 3) Tests (pytest)**
+** 3) Tests (pytest)**
 
 **tests/test\_basic.py**
 
@@ -331,7 +303,7 @@ def test\_basic():
 
 assert 1 + 1 == 2
 
-**📦 4) Python Requirements**
+** 4) Python Requirements**
 
 **requirements.txt**
 
@@ -340,29 +312,20 @@ Flask==3.0.2
 **requirements-dev.txt**
 
 pytest
-
 black
-
 isort
-
 mypy
 
-**🐳 5) Docker Setup**
+** 5) Docker Setup**
 
 **Dockerfile**
 
 FROM python:3.12-slim
-
 WORKDIR /app
-
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY src ./src
-
 COPY run.py .
-
 CMD ["python", "run.py"]
 
 **docker-compose.yml**
@@ -387,14 +350,12 @@ command: python run.py
 
 docker compose up --build
 
-**🧬 6) Git Workflow (clean & modern)**
+** 6) Git Workflow (clean & modern)**
 
 **Initialize**
 
 git init
-
 git add .
-
 git commit -m "Initial Flask project"
 
 **Create feature branch**
@@ -405,32 +366,23 @@ git checkout -b feature/homepage
 
 git push -u origin feature/homepage
 
-**🧰 7) Comfort Shell Enhancements (your aliases)**
+** 7) Comfort Shell Enhancements (your aliases)**
 
 Add to ~/.zshrc or ~/.bashrc:
-
 alias gs="git status"
-
 alias gc="git commit -m"
-
 alias gp="git push"
-
 alias gco="git checkout"
-
 alias dcu="docker compose up"
-
 alias dcd="docker compose down"
-
 alias act="source .venv/bin/activate"
-
 alias py="python3"
 
-**🧠 8) Your Daily Workflow (simple & fast)**
+** 8) Your Daily Workflow (simple & fast)**
 
 **Start work**
 
 cd flask-app
-
 act
 
 **Run Flask locally**
@@ -448,12 +400,10 @@ docker compose up
 **Commit**
 
 git add .
-
 gc "Add new route"
-
 gp
 
-**🎁 Want me to generate a ZIP-ready project with all files filled in?**
+** Want me to generate a ZIP-ready project with all files filled in?**
 
 I can prepare:
 
