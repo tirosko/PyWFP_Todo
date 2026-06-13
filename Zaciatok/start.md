@@ -2,13 +2,13 @@
 
 ```bash
 python -m venv venv
-venv\Scripts\activate      # Windows
+ # Windows
+venv\Scripts\activate      
 ```
 
-alebo
-
 ```bash
-# source venv/bin/activate # Linux/WSL
+ # Linux/WSL
+source venv/bin/activate 
 ```
 
 ```bash
