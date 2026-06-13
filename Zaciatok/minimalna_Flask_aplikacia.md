@@ -26,7 +26,7 @@ pip install flask
 ### Vytvor súbor app.py
 
 Do prázdneho priečinka si vytvor súbor:
-app.py
+`app.py`
 
 ```python
 from flask import Flask
