@@ -1,11 +1,11 @@
-# Minimálna Flask aplikácia.
+# Minimálna Flask aplikácia
 
 ## KROK 1 — Vytvorenie minimálnej Flask aplikácie
 
 Toto je základ, z ktorého vyrastie celý projekt.
 Urobíme to tak, aby si to mohol spustiť vo WSL2 aj vo Windows bez chaosu.
 
-**Nainštaluj Flask (odporúčané vo virtuálnom prostredí)**
+### Nainštaluj Flask (odporúčané vo virtuálnom prostredí)
 
 ### WSL2 / Linux
 
@@ -26,8 +26,7 @@ pip install flask
 ### Vytvor súbor app.py
 
 Do prázdneho priečinka si vytvor súbor:
-
-`app.py`
+app.py
 
 ```python
 from flask import Flask
@@ -47,16 +46,18 @@ Toto je najmenšia funkčná aplikácia.
 ```bash
 flask --app app run --debug
 ```
+
 ### Windows PowerShell
 
 ```bash
 flask --app app run --debug
 ```
-**Otvor v prehliadači**
 
-➡️ [http://127.0.0.1:5000](http://127.0.0.1:5000/)
+### Otvor v prehliadači
+
+[http://127.0.0.1:5000](http://127.0.0.1:5000/)
+
 Uvidíš text:
-
 **Ahoj Tibor! Flask beží.**
 
 ### Čo sme týmto dosiahli?
@@ -66,7 +67,7 @@ Uvidíš text:
 * vieš vytvoriť prvú route,
 * máš pripravený základ pre ďalšie kroky.
 
-**KROK 2 (vyber si)**
+### KROK 2 (vyber si)
 
 Čo chceš ako ďalší krok?
 
