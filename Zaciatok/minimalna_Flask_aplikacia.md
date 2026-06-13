@@ -47,11 +47,11 @@ Toto je najmenšia funkčná aplikácia.
 ```bash
 flask --app app run --debug
 ```
-
 ### Windows PowerShell
 
+```bash
 flask --app app run --debug
-
+```
 **Otvor v prehliadači**
 
 ➡️ [http://127.0.0.1:5000](http://127.0.0.1:5000/)
