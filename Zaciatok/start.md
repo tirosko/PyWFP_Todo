@@ -15,6 +15,7 @@ source venv/bin/activate
 pip install flask
 ```
 
+```python
 from markitdown import MarkItDown
 from openai import OpenAI
 
@@ -25,3 +26,4 @@ md = MarkItDown(
 )
 result = md.convert("document_with_images.pdf")
 print(result.text_content)
+```
