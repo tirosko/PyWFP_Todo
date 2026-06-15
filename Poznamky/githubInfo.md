@@ -1,4 +1,4 @@
-# GitHUb štúdium
+# GitHUB štúdium
 
 Poznámky k spôsobu použitia TAG pre jednotlivé etapy vývoja SW
 
@@ -8,33 +8,42 @@ Poznámky k spôsobu použitia TAG pre jednotlivé etapy vývoja SW
 git tag -a v1.0.0 -m "Main"
 ```
 
-### Stabilné verzie
-
 ```bash
+# Stabilné verzie
 git tag -a v1.0.0 -m "First stable release"
 ```
 
 ```bash
-### Vývojové verzie (dev)
+# Vývojové verzie (dev)
 git tag -a v1.1.0-dev.1 -m "Development snapshot 1"
 git tag -a v1.1.0-dev.2 -m "Development snapshot 2"
 ```
 
-Release kandidáty (rc)
+```bash
+# Release kandidáty (rc)
 git tag -a v1.1.0-rc1 -m "Release candidate 1"
+```
 
-Hotfixy
+```bash
+# Hotfixy
 git tag -a v1.1.1-hotfix1 -m "Fix crash in physics engine"
+```
 
 ## Push tagov na GitHub
 
-Jeden tag
+```bash
+# Jeden tag
 git push origin v1.1.0-dev.1
+```
 
-Všetky tagy
+```bash
+# Všetky tagy
 git push --tags
+```
 
 ## Použitie tagov v Python workflow
+
+Detailne preskúmať
 
 Inštalácia projektu cez pip podľa tagu
 Extrémne silné
