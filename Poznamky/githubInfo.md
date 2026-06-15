@@ -1,15 +1,21 @@
 # GitHUb štúdium
 
-Vyskúšať spôsob použitia TAG pre jednotlivé etapy
+Poznámky k spôsobu použitia TAG pre jednotlivé etapy vývoja SW
 
 ## Príkazy Git
 
+```bash
 git tag -a v1.0.0 -m "Main"
+```
 
-Stabilné verzie
+### Stabilné verzie
+
+```bash
 git tag -a v1.0.0 -m "First stable release"
+```
 
-Vývojové verzie (dev)
+### Vývojové verzie (dev)
+
 git tag -a v1.1.0-dev.1 -m "Development snapshot 1"
 git tag -a v1.1.0-dev.2 -m "Development snapshot 2"
 
