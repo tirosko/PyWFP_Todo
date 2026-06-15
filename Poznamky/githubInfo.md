@@ -14,10 +14,11 @@ git tag -a v1.0.0 -m "Main"
 git tag -a v1.0.0 -m "First stable release"
 ```
 
+```bash
 ### Vývojové verzie (dev)
-
 git tag -a v1.1.0-dev.1 -m "Development snapshot 1"
 git tag -a v1.1.0-dev.2 -m "Development snapshot 2"
+```
 
 Release kandidáty (rc)
 git tag -a v1.1.0-rc1 -m "Release candidate 1"
