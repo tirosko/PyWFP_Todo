@@ -1,7 +1,8 @@
 # Ako nainštalovať Flask prostredie z informácii Geek4geeks
 
 Teória
-<https://www.geeksforgeeks.org/web-tech/web-technology/> 
+<https://www.geeksforgeeks.org/web-tech/web-technology/>
+
 <https://www.geeksforgeeks.org/websites-apps/web-development-prerequisites/>  
 
 prečo sa učiť WEB development
@@ -22,7 +23,7 @@ Prvá aplikácia
 Pokračovanie - routing  
 <https://www.geeksforgeeks.org/python/flask-app-routing/>  
 
-Finále - Todo list app using Flask | Python+
+[Finále - Todo list app using Flask | Python]
 (<https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/>)
 
 Spustenie aplikácia Flask
