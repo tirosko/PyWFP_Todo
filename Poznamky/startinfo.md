@@ -23,7 +23,7 @@ pip freeze > requirements.txt
 [Pokračovanie - routing](<https://www.geeksforgeeks.org/python/flask-app-routing/>)  
 [Finále - Todo list app using Flask | Python](<https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/>)
 
-Spustenie aplikácia Flask
 ```bash
+# Spustenie aplikácia Flask
 flask --app app run --debug
 ```
