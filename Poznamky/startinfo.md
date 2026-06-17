@@ -26,4 +26,6 @@ Finále - Todo list app using Flask | Python
 <https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/>  
 
 Spustenie aplikácia Flask
+```bash
 flask --app app run --debug
+```
