@@ -1,6 +1,6 @@
 # Ako nainštalovať Flask prostredie z informácii Geek4geeks
 
-Teória
+Teória  
 <https://www.geeksforgeeks.org/web-tech/web-technology/>
 
 <https://www.geeksforgeeks.org/websites-apps/web-development-prerequisites/>  
