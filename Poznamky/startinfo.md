@@ -24,7 +24,7 @@ pip freeze > requirements.txt
 
 Prvá aplikácia  
 <https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/>
-{Introduction to Web development using Flask](<https://www.geeksforgeeks.org/python/python-introduction-to-web-development-using-flask/>)
+[Introduction to Web development using Flask](<https://www.geeksforgeeks.org/python/python-introduction-to-web-development-using-flask/>)
 
 Pokračovanie - routing  
 <https://www.geeksforgeeks.org/python/flask-app-routing/>  
