@@ -11,12 +11,16 @@ prečo sa učiť WEB development
 Flask je ľahký webový framework používaný na tvorbu webových aplikácií a API. Nasleduje minimalistický dizajn a poskytuje základné funkcie ako smerovanie, spracovanie požiadaviek a renderovanie šablón, pričom vývojárom umožňuje pridávať rozšírenia podľa potreby. Vďaka svojej jednoduchosti a flexibilite sa široko používa na tvorbu malých až stredne veľkých webových aplikácií.
 
 Inštalácia  
+
 ```bash
 pip install flask  
 ```
+
 Pozor inštalácia flask by mala byť urobená do .venv - aby sa neinštaloval centrálne
+
 ```bash
 pip freeze > requirements.txt
+```
 
 Prvá aplikácia  
 <https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/>  
@@ -28,4 +32,7 @@ Finále - Todo list app using Flask | Python
 <https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/>  
 
 Spustenie aplikácia Flask
+
+```bash
 flask --app app run --debug
+```
