@@ -19,11 +19,12 @@ pip freeze > requirements.txt
 Prvá aplikácia  
 <https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/>  
 
-Pokračovanie - routing  
-<https://www.geeksforgeeks.org/python/flask-app-routing/>  
+Pokračovanie - [routing](<https://www.geeksforgeeks.org/python/flask-app-routing/>)
 
 Finále - Todo list app using Flask | Python
 <https://www.geeksforgeeks.org/python/todo-list-app-using-flask-python/>  
 
 Spustenie aplikácia Flask
+```bash
 flask --app app run --debug
+```
