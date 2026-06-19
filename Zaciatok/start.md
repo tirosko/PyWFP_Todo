@@ -33,3 +33,11 @@ print(result.text_content)
 - Syntax [MarkDown](https://markdowncheatsheet.com/reference)
 - Everything you need to learn Markdown [MarkDown](https://www.markdownguide.org/)
 - Basic syntax [BasicSyntax]([text](https://www.markdownguide.org/basic-syntax/))
+
+## Difference between HTML and CSS  
+
+<https://www.geeksforgeeks.org/css/difference-between-html-and-css/>  
+
+[HTML Tutorial](https://www.geeksforgeeks.org/html/html-tutorial/)
+
+[CSS Tutorial](https://www.geeksforgeeks.org/css/css-tutorial/)  
