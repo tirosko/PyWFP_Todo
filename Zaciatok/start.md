@@ -38,6 +38,7 @@ print(result.text_content)
 
 <https://www.geeksforgeeks.org/css/difference-between-html-and-css/>  
 
-[HTML Tutorial](https://www.geeksforgeeks.org/html/html-tutorial/)
+[HTML Tutorial](https://www.geeksforgeeks.org/html/html-tutorial/)  
+[Best HTML Coding Practices You Must Know](https://www.geeksforgeeks.org/html/best-html-coding-practices-you-must-know/)
 
 [CSS Tutorial](https://www.geeksforgeeks.org/css/css-tutorial/)  
