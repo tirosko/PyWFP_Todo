@@ -39,6 +39,8 @@ print(result.text_content)
 <https://www.geeksforgeeks.org/css/difference-between-html-and-css/>  
 
 [HTML Tutorial](https://www.geeksforgeeks.org/html/html-tutorial/)  
+[Štúdium a pokračovanie](https://www.geeksforgeeks.org/html/html-elements/)
+
 [Best HTML Coding Practices You Must Know](https://www.geeksforgeeks.org/html/best-html-coding-practices-you-must-know/)  
 [HTML vo Visual Studio Code](https://code.visualstudio.com/Docs/languages/html)  
 Dopĺňanie tagov a náhľad pravým tlačítkom myši v zozname súborov  
