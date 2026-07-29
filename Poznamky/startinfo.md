@@ -37,3 +37,6 @@ Spustenie aplikácia Flask
 ```bash
 flask --app app run --debug
 ```
+## Príklad2
+<https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/>
+Príklad 2 je premenovaním app2.py na app.py a využitím template name.html a web - http://127.0.0.1:5000/login
