@@ -59,7 +59,9 @@ flask --app app_r run --debug
 
 <https://www.geeksforgeeks.org/python/declaring-models-in-flask/>  
 Vo Flask modely definujú štruktúru dát a spracovávajú databázové operácie mapovaním databázových tabuliek na Python triedy.  
+
 <https://www.geeksforgeeks.org/python/connect-flask-to-a-database-with-flask-sqlalchemy/>  
+<https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/>
 
 ```bash
 pip install flask-sqlalchemy

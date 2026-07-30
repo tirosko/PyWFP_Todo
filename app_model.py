@@ -1,10 +1,10 @@
-from flask import Flask, redirect, url_for, render_template, request
-import os
 import datetime
+import os
+
 import click
+from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import DeclarativeBase, mapped_column
 
 
 def create_app(test_config=None):
@@ -43,8 +43,9 @@ def create_app(test_config=None):
     @app.route('/', methods=['GET', 'POST'])
     def home():
         if request.method == 'POST':
-            db.session.add(Event(date=datetime.datetime.now(
-            ).__str__(), event=request.form['eventBox']))
+            # use timezone-aware datetime to avoid naive datetime warning
+            db.session.add(Event(date=datetime.datetime.now(tz=datetime.timezone.utc).isoformat(),
+                                 event=request.form['eventBox']))
             db.session.commit()
             return redirect(url_for('home'))
         return render_template('home.html', eventsList=db.session.execute(db.select(Event).order_by(Event.date)).scalars())
