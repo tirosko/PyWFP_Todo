@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
+from flask import Flask, render_template, request
+=======
 from flask import Flask, request, render_template
+>>>>>>> Stashed changes
 
 app = Flask(__name__)
 

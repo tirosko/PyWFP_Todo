@@ -37,22 +37,31 @@ Spustenie aplikácia Flask
 ```bash
 flask --app app run --debug
 ```
+
 ## Príklad2
+
 <https://www.geeksforgeeks.org/python/flask-creating-first-simple-application/>
-Príklad 2 je premenovaním app2.py na app.py a využitím template name.html a web - http://127.0.0.1:5000/login
+Príklad 2 je premenovaním app2.py na app.py a využitím template name.html a web - <http://127.0.0.1:5000/login>
 
 ## Routing
+
 <https://www.geeksforgeeks.org/python/flask-app-routing/>  
+
 Príklady -  
 app_r.py  
-app_rf.py   
+app_rf.py  
 
 ```bash
 flask --app app_r run --debug
 ```
-## Databáza  
+
+## Databáza
+
 <https://www.geeksforgeeks.org/python/declaring-models-in-flask/>  
 Vo Flask modely definujú štruktúru dát a spracovávajú databázové operácie mapovaním databázových tabuliek na Python triedy.  
+
+<https://www.geeksforgeeks.org/python/connect-flask-to-a-database-with-flask-sqlalchemy/>  
+<https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/>
 
 ```bash
 pip install flask-sqlalchemy
