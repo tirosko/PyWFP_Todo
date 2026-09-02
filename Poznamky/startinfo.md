@@ -74,3 +74,8 @@ Vo Flask modely definujú štruktúru dát a spracovávajú databázové operác
 ```bash
 pip install flask-sqlalchemy
 ```
+
+## Visual Studio Code
+
+Námety na štúdium  
+<https://code.visualstudio.com/updates/v1_136>
