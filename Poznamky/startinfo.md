@@ -1,7 +1,15 @@
 # Ako nainštalovať Flask prostredie z informácii Geek4geeks
 
 Teória  
-<https://www.geeksforgeeks.org/web-tech/web-technology/>  
+<https://www.geeksforgeeks.org/web-tech/web-technology/>
+Web development is the process of creating and maintaining websites and web applications that run on the internet.
+
+Users access websites through web browsers.
+The browser sends a request to the web server.
+The server processes the request and may access a database.
+The server sends a response back to the browser.
+The browser displays the webpage securely using HTTPS.
+
 <https://www.geeksforgeeks.org/websites-apps/web-development-prerequisites/>  
 
 prečo sa učiť WEB development  
