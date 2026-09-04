@@ -14,6 +14,7 @@ Praktické príklady HTML - o_mne.html a o_mne1.html
 ## Tutorial: Agentic coding in VS Code
 
 <https://code.visualstudio.com/docs/agents/agents-tutorial>  
+<[GetStarted](https://code.visualstudio.com/docs/editing/getting-started/editor-tutorial)>
 
 Vytvoríte si jednoduchú stránku osobného portfólia pomocou HTML, CSS a JavaScriptu.  
 Stránka je úplne statická, takže nemusíte inštalovať žiadne runtime alebo build nástroje, aby ste to sledovali.  
