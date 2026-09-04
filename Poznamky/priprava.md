@@ -21,3 +21,5 @@ Stránka je úplne statická, takže nemusíte inštalovať žiadne runtime aleb
 
 Vytvoril som prie4inok TutorialVSC_AI - úlohou Kubiho bude poľa návodu v MD a na WEB linke vytvoriť si vlastný HTML cez Agentov VSC
 VS Code teraz považuje priečinok, ktorý ste otvorili, za pracovný priestor
+
+Vytvoriť jednoduchý index.html
