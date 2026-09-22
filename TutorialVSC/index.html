@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Notes | Recipe List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Kitchen notebook</p>
+                <h1>Good food,<br><em>saved simply.</em></h1>
+                <p class="hero-text">Keep the recipes you reach for often in one warm, easy-to-scan place.</p>
+            </div>
+            <div class="hero-mark" aria-hidden="true">R</div>
+        </header>
+
+        <section class="recipe-form-section" aria-labelledby="add-recipe-heading">
+            <div class="section-heading">
+                <p class="eyebrow">Build your collection</p>
+                <h2 id="add-recipe-heading">Add a recipe</h2>
+            </div>
+            <form id="recipe-form" class="recipe-form">
+                <label>
+                    Recipe name
+                    <input id="recipe-name" name="name" type="text" placeholder="e.g. Lemon pasta" required maxlength="60">
+                </label>
+                <label>
+                    Description
+                    <textarea id="recipe-description" name="description" placeholder="A quick note about ingredients, timing, or your favorite twist..." required maxlength="240" rows="3"></textarea>
+                </label>
+                <button class="add-button" type="submit">
+                    <span aria-hidden="true">+</span> Add recipe
+                </button>
+            </form>
+        </section>
+
+        <section class="recipe-list-section" aria-labelledby="recipe-list-heading">
+            <div class="list-heading">
+                <div>
+                    <p class="eyebrow">Your collection</p>
+                    <h2 id="recipe-list-heading">Recipes <span id="recipe-count" class="recipe-count">0</span></h2>
+                </div>
+                <p id="empty-message" class="empty-message">Your next favorite starts here.</p>
+            </div>
+            <div id="recipe-list" class="recipe-list" aria-live="polite"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
