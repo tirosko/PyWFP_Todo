@@ -4,7 +4,7 @@
 
 Agent je systém AI, ktorý používa jazykový model a nástroje na dokončenie cieľa vo vašom mene.  
 
-![Diagram](image.png)
+![Diagram](agent_slucka.png)
 
 ## Modely  
 

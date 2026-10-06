@@ -2,12 +2,15 @@ const recipeForm = document.querySelector("#recipe-form");
 const recipeList = document.querySelector("#recipe-list");
 const recipeCount = document.querySelector("#recipe-count");
 const emptyMessage = document.querySelector("#empty-message");
+const undoMessage = document.querySelector("#undo-message");
+const undoDeleteButton = document.querySelector("#undo-delete-button");
 
 let recipes = [
-    { name: "Miso butter noodles", description: "Silky noodles tossed with miso, butter, sesame, and a squeeze of lime." },
-    { name: "Roasted tomato toast", description: "Slow-roasted tomatoes, whipped ricotta, basil, and black pepper on sourdough." },
-    { name: "Crispy chickpea salad", description: "Crunchy spiced chickpeas with cucumber, herbs, and a bright lemon dressing." }
+    { name: "Rezance s miso a maslom", description: "Jemné rezance premiešané s miso pastou, maslom, sezamom a trochou limetkovej šťavy." },
+    { name: "Hrianka s pečenými paradajkami", description: "Pomaly pečené paradajky, našľahaná ricotta, bazalka a čierne korenie na kváskovom chlebe." },
+    { name: "Chrumkavý cícerový šalát", description: "Chrumkavý korenený cícer s uhorkou, bylinkami a sviežou citrónovou zálievkou." }
 ];
+let deletedRecipe = null;
 
 function renderRecipes() {
     recipeList.innerHTML = "";
@@ -23,8 +26,8 @@ function renderRecipes() {
                 <p>${escapeHtml(recipe.description)}</p>
             </div>
             <div class="card-footer">
-                <span class="recipe-number">RECIPE ${String(index + 1).padStart(2, "0")}</span>
-                <button class="delete-button" type="button" data-index="${index}" aria-label="Delete ${escapeHtml(recipe.name)}">Delete</button>
+                <span class="recipe-number">RECEPT ${String(index + 1).padStart(2, "0")}</span>
+                <button class="delete-button" type="button" data-index="${index}" aria-label="Odstrániť ${escapeHtml(recipe.name)}">Odstrániť</button>
             </div>
         `;
         recipeList.appendChild(card);
@@ -51,7 +54,18 @@ recipeForm.addEventListener("submit", (event) => {
 recipeList.addEventListener("click", (event) => {
     const deleteButton = event.target.closest(".delete-button");
     if (!deleteButton) return;
-    recipes.splice(Number(deleteButton.dataset.index), 1);
+    const index = Number(deleteButton.dataset.index);
+    const [recipe] = recipes.splice(index, 1);
+    deletedRecipe = { recipe, index };
+    undoMessage.hidden = false;
+    renderRecipes();
+});
+
+undoDeleteButton.addEventListener("click", () => {
+    if (!deletedRecipe) return;
+    recipes.splice(deletedRecipe.index, 0, deletedRecipe.recipe);
+    deletedRecipe = null;
+    undoMessage.hidden = true;
     renderRecipes();
 });
 

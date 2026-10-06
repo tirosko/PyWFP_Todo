@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Notes | Recipe List</title>
+    <title>Kuchynské poznámky | Zoznam receptov</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -13,29 +13,29 @@
     <main class="app-shell">
         <header class="hero">
             <div class="hero-copy">
-                <p class="eyebrow">Kitchen notebook</p>
-                <h1>Good food,<br><em>saved simply.</em></h1>
-                <p class="hero-text">Keep the recipes you reach for often in one warm, easy-to-scan place.</p>
+                <p class="eyebrow">Kuchynský zápisník</p>
+                <h1>Dobré jedlo,<br><em>jednoducho uložené.</em></h1>
+                <p class="hero-text">Uchovajte si obľúbené recepty na jednom príjemnom a prehľadnom mieste.</p>
             </div>
             <div class="hero-mark" aria-hidden="true">R</div>
         </header>
 
         <section class="recipe-form-section" aria-labelledby="add-recipe-heading">
             <div class="section-heading">
-                <p class="eyebrow">Build your collection</p>
-                <h2 id="add-recipe-heading">Add a recipe</h2>
+                <p class="eyebrow">Vytvorte si zbierku</p>
+                <h2 id="add-recipe-heading">Pridať recept</h2>
             </div>
             <form id="recipe-form" class="recipe-form">
                 <label>
-                    Recipe name
-                    <input id="recipe-name" name="name" type="text" placeholder="e.g. Lemon pasta" required maxlength="60">
+                    Názov receptu
+                    <input id="recipe-name" name="name" type="text" placeholder="napr. Citrónové cestoviny" required maxlength="60">
                 </label>
                 <label>
-                    Description
-                    <textarea id="recipe-description" name="description" placeholder="A quick note about ingredients, timing, or your favorite twist..." required maxlength="240" rows="3"></textarea>
+                    Popis
+                    <textarea id="recipe-description" name="description" placeholder="Stručná poznámka o surovinách, čase prípravy alebo vašom obľúbenom vylepšení..." required maxlength="240" rows="3"></textarea>
                 </label>
                 <button class="add-button" type="submit">
-                    <span aria-hidden="true">+</span> Add recipe
+                    <span aria-hidden="true">+</span> Pridať recept
                 </button>
             </form>
         </section>
@@ -43,10 +43,14 @@
         <section class="recipe-list-section" aria-labelledby="recipe-list-heading">
             <div class="list-heading">
                 <div>
-                    <p class="eyebrow">Your collection</p>
-                    <h2 id="recipe-list-heading">Recipes <span id="recipe-count" class="recipe-count">0</span></h2>
+                    <p class="eyebrow">Vaša zbierka</p>
+                    <h2 id="recipe-list-heading">Recepty <span id="recipe-count" class="recipe-count">0</span></h2>
                 </div>
-                <p id="empty-message" class="empty-message">Your next favorite starts here.</p>
+                <p id="empty-message" class="empty-message">Tu sa začína váš ďalší obľúbený recept.</p>
+            </div>
+            <div id="undo-message" class="undo-message" role="status" hidden>
+                <span>Recept bol vymazaný.</span>
+                <button id="undo-delete-button" class="undo-button" type="button">Vrátiť späť</button>
             </div>
             <div id="recipe-list" class="recipe-list" aria-live="polite"></div>
         </section>
