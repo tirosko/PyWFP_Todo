@@ -15,7 +15,7 @@ Jazykový model spracováva textový vstup (tzv. "prompt") a generuje textový v
 Vo VS Code je výzva zostavená z viacerých zdrojov: vašej správy, histórie konverzácie, obsahu súboru, výstupov nástrojov a vlastných inštrukcií.  
 Model generuje odpovede, ktoré môžu zahŕňať vysvetlenia, úpravy kódu alebo požiadavky na zavolanie nástrojov.  
 
-### Context window  
+### Kontextové okno (Context window)
 
 Kontextové okno je celkové množstvo informácií, ktoré model dokáže spracovať v jednej požiadavke.  
 Obsahuje všetko: systémovú výzvu, vlastné inštrukcie, históriu konverzácií, obsah súborov, výstupy nástrojov a vašu aktuálnu správu.  
