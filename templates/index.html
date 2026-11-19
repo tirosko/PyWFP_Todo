@@ -2,35 +2,487 @@
 <html lang="sk">
 <head>
     <meta charset="utf-8">
-    <title>ToDo zoznam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moje úlohy</title>
     <style>
-        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
-        li.done { text-decoration: line-through; color: #777; }
-        form { margin-bottom: 1rem; }
-        button, a { margin-left: 0.5rem; }
+        :root {
+            color-scheme: light;
+            font-family: "Segoe UI", sans-serif;
+            color: #202a35;
+            background: #f3f6f8;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 48px 20px;
+            background: linear-gradient(145deg, #f3f6f8, #e8f0f3);
+        }
+        main {
+            width: min(100%, 620px);
+            margin: 0 auto;
+            padding: 36px;
+            border: 1px solid #e6ebef;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 18px 50px #26374612;
+        }
+        .eyebrow {
+            margin: 0 0 8px;
+            color: #297c71;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.4rem); }
+        .count { color: #74808a; font-size: .95rem; }
+        .add-form {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(190px, 230px);
+            align-items: end;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .field { display: grid; gap: 6px; }
+        .field-label { color: #53616b; font-size: .86rem; font-weight: 600; }
+        input {
+            min-width: 0;
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #dce3e8;
+            border-radius: 10px;
+            font: inherit;
+        }
+        input:focus { outline: 3px solid #297c7130; border-color: #297c71; }
+        .deadline-controls {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 92px;
+            gap: 8px;
+        }
+        .date-button, .time-input {
+            min-width: 0;
+            min-height: 46px;
+            padding: 10px;
+            border: 1px solid #dce3e8;
+            border-radius: 10px;
+            font: inherit;
+        }
+        .date-button {
+            overflow: hidden;
+            color: #202a35;
+            background: #fff;
+            text-align: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .date-button:focus, .time-input:focus, .calendar button:focus {
+            outline: 3px solid #297c7130;
+            border-color: #297c71;
+        }
+        .calendar {
+            position: absolute;
+            z-index: 2;
+            top: calc(100% + 8px);
+            left: 0;
+            width: min(320px, calc(100vw - 48px));
+            padding: 14px;
+            border: 1px solid #dce3e8;
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 12px 32px #26374624;
+        }
+        .calendar[hidden] { display: none; }
+        .calendar-navigation {
+            display: grid;
+            grid-template-columns: 38px 1fr 38px;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .calendar-navigation strong { text-transform: capitalize; }
+        .calendar-navigation button {
+            min-height: 36px;
+            color: #21665d;
+            background: #eaf5f2;
+            font-size: 1.2rem;
+        }
+        .calendar-weekdays, .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 3px;
+            text-align: center;
+        }
+        .calendar-weekdays { margin-bottom: 4px; color: #74808a; font-size: .78rem; }
+        .calendar-day {
+            min-width: 0;
+            min-height: 34px;
+            padding: 0;
+            color: #202a35;
+            background: transparent;
+            font-weight: 400;
+        }
+        .calendar-day.outside-month { color: #a7b0b6; }
+        .calendar-day[aria-current="date"] { box-shadow: inset 0 0 0 1px #297c71; }
+        .calendar-day[aria-selected="true"] { color: #fff; background: #297c71; }
+        .calendar-help { margin: 10px 0 0; color: #74808a; font-size: .78rem; }
+        .form-help { grid-column: 1 / -1; margin: 0; color: #74808a; font-size: .86rem; }
+        button {
+            border: 0;
+            border-radius: 10px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .add-button {
+            grid-column: 1 / -1;
+            min-height: 46px;
+            padding: 0 20px;
+            color: #fff;
+            background: #297c71;
+        }
+        .add-button:hover { background: #21665d; }
+        .task-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+        .task {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 58px;
+            padding: 10px 12px;
+            border: 1px solid #edf0f2;
+            border-radius: 12px;
+        }
+        .task-content { flex: 1; min-width: 0; }
+        .task-text { display: block; overflow-wrap: anywhere; }
+        .due-date { display: block; margin-top: 4px; color: #74808a; font-size: .82rem; }
+        .task.done .task-text { color: #89939b; text-decoration: line-through; }
+        .toggle-button {
+            flex: 0 0 auto;
+            padding: 8px 10px;
+            color: #21665d;
+            background: #eaf5f2;
+        }
+        .task.done .toggle-button { color: #fff; background: #297c71; }
+        .delete-button { padding: 8px 10px; color: #77828b; background: transparent; }
+        .delete-button:hover { color: #a33434; background: #fff1f0; }
+        .empty {
+            padding: 28px 16px;
+            border: 1px dashed #dce3e8;
+            border-radius: 12px;
+            color: #74808a;
+            text-align: center;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        @media (max-width: 480px) {
+            body { padding: 20px 12px; }
+            main { padding: 24px 18px; }
+            .add-form { grid-template-columns: 1fr; }
+            .form-help, .add-button { grid-column: 1; }
+            .task { flex-wrap: wrap; }
+        }
     </style>
 </head>
 <body>
-    <h1>ToDo zoznam</h1>
+    <main>
+        <header>
+            <div>
+                <p class="eyebrow">Plán na každý deň</p>
+                <h1>Moje úlohy</h1>
+            </div>
+            <span class="count">{{ todos|length }} úloh</span>
+        </header>
 
-    <form action="{{ url_for('add') }}" method="post">
-        <input type="text" name="todo" placeholder="Nová úloha" required>
-        <button type="submit">Pridať</button>
-    </form>
+        <form class="add-form" id="add-form" action="{{ url_for('add') }}" method="post">
+            <div class="field">
+                <label class="visually-hidden" for="todo">Nová úloha</label>
+                <input id="todo" type="text" name="todo" placeholder="Čo treba urobiť?"
+                       aria-describedby="form-help" required>
+            </div>
+            <div class="field">
+                <span class="field-label" id="deadline-label">Termín dokončenia</span>
+                <div class="deadline-controls">
+                    <button class="date-button" id="calendar-toggle" type="button"
+                            aria-labelledby="deadline-label date-button-text"
+                            aria-haspopup="dialog" aria-expanded="false" aria-controls="calendar">
+                        <span id="date-button-text">Vybrať dátum</span>
+                    </button>
+                    <input class="time-input" id="due-time" type="text" inputmode="text"
+                           placeholder="HH:MM" maxlength="5" autocomplete="off"
+                           aria-label="Čas v 24-hodinovom formáte">
+                    <input id="due_at" type="hidden" name="due_at">
+                    <div class="calendar" id="calendar" role="dialog" aria-label="Výber dátumu" hidden>
+                        <div class="calendar-navigation">
+                            <button id="previous-month" type="button" aria-label="Predchádzajúci mesiac">‹</button>
+                            <strong id="calendar-title" aria-live="polite"></strong>
+                            <button id="next-month" type="button" aria-label="Nasledujúci mesiac">›</button>
+                        </div>
+                        <div class="calendar-weekdays" role="row">
+                            <span role="columnheader" aria-label="Pondelok">Po</span>
+                            <span role="columnheader" aria-label="Utorok">Ut</span>
+                            <span role="columnheader" aria-label="Streda">St</span>
+                            <span role="columnheader" aria-label="Štvrtok">Št</span>
+                            <span role="columnheader" aria-label="Piatok">Pi</span>
+                            <span role="columnheader" aria-label="Sobota">So</span>
+                            <span role="columnheader" aria-label="Nedeľa">Ne</span>
+                        </div>
+                        <div class="calendar-days" id="calendar-days" role="grid"
+                             aria-labelledby="calendar-title"></div>
+                        <p class="calendar-help">Pohyb: šípky, týždeň: Home/End, mesiac: Page Up/Down, výber: Enter.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="form-help" id="form-help">Vyplň názov úlohy. Termín s dátumom a hodinou je voliteľný.</p>
+            <button class="add-button" type="submit">Pridať úlohu</button>
+        </form>
 
-    <ul>
-        {% for todo in todos %}
-            <li class="{% if todo.done %}done{% endif %}">
-                {{ loop.index }}. {{ todo.text }}
-                <a href="{{ url_for('toggle', idx=loop.index0) }}">
-                    {% if todo.done %}Obnoviť{% else %}Hotovo{% endif %}
-                </a>
-                <a href="{{ url_for('delete', idx=loop.index0) }}">Zmazať</a>
-            </li>
-        {% else %}
-            <li>Žiadne úlohy.</li>
-        {% endfor %}
-    </ul>
+        <ul class="task-list">
+            {% for todo in todos %}
+                <li class="task{% if todo.done %} done{% endif %}">
+                    <form action="{{ url_for('toggle', idx=loop.index0) }}" method="post">
+                        <button class="toggle-button" type="submit"
+                                aria-label="{% if todo.done %}Označiť ako nesplnenú{% else %}Označiť ako splnenú{% endif %}">
+                            {% if todo.done %}Znovu otvoriť{% else %}Dokončiť{% endif %}
+                        </button>
+                    </form>
+                    <div class="task-content">
+                        <span class="task-text">{{ todo.text }}</span>
+                        {% if todo.due_at %}
+                            <time class="due-date" datetime="{{ todo.due_at|replace(' ', 'T') }}">
+                                Termín: {{ todo.due_at|format_due_at }}
+                            </time>
+                        {% endif %}
+                    </div>
+                    <form action="{{ url_for('delete', idx=loop.index0) }}" method="post">
+                        <button class="delete-button" type="submit">Odstrániť</button>
+                    </form>
+                </li>
+            {% else %}
+                <li class="empty">Zatiaľ tu nemáš žiadne úlohy. Pridaj svoju prvú úlohu vyššie.</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <script>
+        const todoInput = document.getElementById("todo");
+        const form = document.getElementById("add-form");
+        const calendarToggle = document.getElementById("calendar-toggle");
+        const calendar = document.getElementById("calendar");
+        const calendarTitle = document.getElementById("calendar-title");
+        const calendarDays = document.getElementById("calendar-days");
+        const dateButtonText = document.getElementById("date-button-text");
+        const timeInput = document.getElementById("due-time");
+        const dueAtInput = document.getElementById("due_at");
+        const monthNames = [
+            "január", "február", "marec", "apríl", "máj", "jún",
+            "júl", "august", "september", "október", "november", "december"
+        ];
+        const weekdayNames = [
+            "pondelok", "utorok", "streda", "štvrtok", "piatok", "sobota", "nedeľa"
+        ];
+        const today = new Date();
+        let selectedDate = null;
+        let activeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
+
+        function dateToIso(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        }
+
+        function formatDate(date) {
+            return `${String(date.getDate()).padStart(2, "0")}.${String(date.getMonth() + 1).padStart(2, "0")}.${date.getFullYear()}`;
+        }
+
+        function monthDate(date, offset) {
+            const firstOfMonth = new Date(date.getFullYear(), date.getMonth() + offset, 1, 12);
+            const lastDay = new Date(firstOfMonth.getFullYear(), firstOfMonth.getMonth() + 1, 0, 12).getDate();
+            return new Date(firstOfMonth.getFullYear(), firstOfMonth.getMonth(),
+                Math.min(date.getDate(), lastDay), 12);
+        }
+
+        function renderCalendar(moveFocus = false) {
+            calendarTitle.textContent = `${monthNames[activeDate.getMonth()]} ${activeDate.getFullYear()}`;
+            calendarDays.replaceChildren();
+
+            const firstOfMonth = new Date(activeDate.getFullYear(), activeDate.getMonth(), 1, 12);
+            const mondayOffset = (firstOfMonth.getDay() + 6) % 7;
+            const firstVisibleDay = new Date(firstOfMonth);
+            firstVisibleDay.setDate(firstVisibleDay.getDate() - mondayOffset);
+
+            for (let index = 0; index < 42; index += 1) {
+                const date = new Date(firstVisibleDay);
+                date.setDate(firstVisibleDay.getDate() + index);
+                const isoDate = dateToIso(date);
+                const weekday = (date.getDay() + 6) % 7;
+                const dayButton = document.createElement("button");
+                dayButton.type = "button";
+                dayButton.className = "calendar-day";
+                dayButton.textContent = date.getDate();
+                dayButton.dataset.date = isoDate;
+                dayButton.setAttribute("role", "gridcell");
+                dayButton.setAttribute("aria-label",
+                    `${weekdayNames[weekday]} ${date.getDate()}. ${monthNames[date.getMonth()]} ${date.getFullYear()}`);
+                dayButton.setAttribute("aria-selected",
+                    String(Boolean(selectedDate && isoDate === dateToIso(selectedDate))));
+                dayButton.tabIndex = isoDate === dateToIso(activeDate) ? 0 : -1;
+                if (date.getMonth() !== activeDate.getMonth()) {
+                    dayButton.classList.add("outside-month");
+                }
+                if (isoDate === dateToIso(today)) {
+                    dayButton.setAttribute("aria-current", "date");
+                }
+                calendarDays.append(dayButton);
+            }
+
+            if (moveFocus) {
+                calendarDays.querySelector(`[data-date="${dateToIso(activeDate)}"]`).focus();
+            }
+        }
+
+        function openCalendar() {
+            activeDate = selectedDate
+                ? new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), 12)
+                : new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
+            renderCalendar();
+            calendar.hidden = false;
+            calendarToggle.setAttribute("aria-expanded", "true");
+            calendarDays.querySelector(`[data-date="${dateToIso(activeDate)}"]`).focus();
+        }
+
+        function closeCalendar(returnFocus = true) {
+            calendar.hidden = true;
+            calendarToggle.setAttribute("aria-expanded", "false");
+            if (returnFocus) {
+                calendarToggle.focus();
+            }
+        }
+
+        function moveActiveDate(date) {
+            activeDate = date;
+            renderCalendar(true);
+        }
+
+        function selectDate(date) {
+            selectedDate = date;
+            activeDate = date;
+            dateButtonText.textContent = formatDate(date);
+            closeCalendar(false);
+            updateDeadline();
+            timeInput.focus();
+        }
+
+        function deadlineError() {
+            const time = timeInput.value.trim();
+            if (!selectedDate && time) {
+                return "Najprv vyber dátum termínu.";
+            }
+            if (selectedDate && !time) {
+                return "Zadaj čas termínu v 24-hodinovom formáte, napríklad 14:30.";
+            }
+            if (time && !/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) {
+                return "Zadaj čas v 24-hodinovom formáte, napríklad 14:30.";
+            }
+            return "";
+        }
+
+        function updateDeadline() {
+            const error = deadlineError();
+            timeInput.setCustomValidity(error);
+            dueAtInput.value = selectedDate && !error
+                ? `${dateToIso(selectedDate)}T${timeInput.value.trim()}`
+                : "";
+        }
+
+        calendarToggle.addEventListener("click", () => {
+            if (calendar.hidden) {
+                openCalendar();
+            } else {
+                closeCalendar();
+            }
+        });
+        document.getElementById("previous-month").addEventListener("click", () => {
+            moveActiveDate(monthDate(activeDate, -1));
+        });
+        document.getElementById("next-month").addEventListener("click", () => {
+            moveActiveDate(monthDate(activeDate, 1));
+        });
+        calendarDays.addEventListener("click", (event) => {
+            const dayButton = event.target.closest("[data-date]");
+            if (dayButton) {
+                const [year, month, day] = dayButton.dataset.date.split("-").map(Number);
+                selectDate(new Date(year, month - 1, day, 12));
+            }
+        });
+        calendar.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                event.preventDefault();
+                closeCalendar();
+                return;
+            }
+
+            const dayButton = event.target.closest("[data-date]");
+            if (!dayButton) {
+                return;
+            }
+            let nextDate = new Date(activeDate);
+            if (event.key === "ArrowLeft") nextDate.setDate(nextDate.getDate() - 1);
+            else if (event.key === "ArrowRight") nextDate.setDate(nextDate.getDate() + 1);
+            else if (event.key === "ArrowUp") nextDate.setDate(nextDate.getDate() - 7);
+            else if (event.key === "ArrowDown") nextDate.setDate(nextDate.getDate() + 7);
+            else if (event.key === "Home") nextDate.setDate(nextDate.getDate() - ((nextDate.getDay() + 6) % 7));
+            else if (event.key === "End") nextDate.setDate(nextDate.getDate() + (6 - ((nextDate.getDay() + 6) % 7)));
+            else if (event.key === "PageUp") nextDate = monthDate(nextDate, event.shiftKey ? -12 : -1);
+            else if (event.key === "PageDown") nextDate = monthDate(nextDate, event.shiftKey ? 12 : 1);
+            else if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                selectDate(activeDate);
+                return;
+            } else {
+                return;
+            }
+            event.preventDefault();
+            moveActiveDate(nextDate);
+        });
+        document.addEventListener("click", (event) => {
+            if (!calendar.hidden && !calendar.contains(event.target) && !calendarToggle.contains(event.target)) {
+                closeCalendar(false);
+            }
+        });
+        timeInput.addEventListener("input", updateDeadline);
+        form.addEventListener("submit", (event) => {
+            updateDeadline();
+            if (deadlineError()) {
+                event.preventDefault();
+                timeInput.reportValidity();
+            }
+        });
+
+        todoInput.addEventListener("invalid", () => {
+            if (todoInput.validity.valueMissing) {
+                todoInput.setCustomValidity("Vyplň, prosím, názov úlohy.");
+            }
+        });
+        todoInput.addEventListener("input", () => todoInput.setCustomValidity(""));
+    </script>
 </body>
 </html>
 

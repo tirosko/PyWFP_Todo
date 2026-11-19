@@ -1,2 +1,2 @@
-1;Jakub IT
-0;daj Belle najest
+0;2026-11-23T15:30;Programovanie JD
+0;2026-11-24T15:30;Oprava programovania
