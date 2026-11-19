@@ -1,0 +1,523 @@
+
+[1m[38;2;191;207;240mVersion:[0m 31.4.0
+
+[1m[38;2;191;207;240mShell:[0m shell (7.6.6)
+[1m[38;2;191;207;240m
+Prompt:
+
+[0m[38;2;126;184;218m┏[0m[38;2;126;184;218m  [0m[38;2;126;184;218m[[38;2;255;255;255m[38;2;126;184;218m Sun,04.10.2026 [0m[38;2;255;255;255m[49m[38;2;126;184;218m 20:13:31][0m[38;2;218;132;31m[[38;2;255;255;255m[38;2;218;132;31m tibor [38;2;255;255;255m[38;2;218;132;31m [3mHP_Z4G4_TR[23m][0m[38;2;190;157;223m[[38;2;255;255;255m MEM:29% [0m[38;2;190;157;223mRAM:18/63GB][0m[38;2;27;153;220m[ shell][0m[38;2;190;157;223m[[38;2;255;255;255m[38;2;190;157;223m 0s][0m[38;2;173;216;230m[ Modra,SK][0m[38;2;255;192;203m[ 16°C] [0m
+[38;2;126;184;218m┣[0m[38;2;144;238;144m[[38;2;255;255;255m[38;2;144;238;144m ~\Documents\ProgramovanieHPZ4\PyWFP_Todo][0m[38;2;255;222;87m[ 3.13.15 (.venv)][0m[38;2;255;165;216m[[38;2;255;255;255m [38;2;255;165;216mmain ↓5 [38;2;255;255;255m[38;2;255;165;216m ?1][0m
+[38;2;126;184;218m└─[0m[37m>[0m]0;PyWFP_Todo [1m[38;2;191;207;240m
+
+Segments:
+
+[0mConsoleTitle([38;2;156;231;201mtrue[0m)  -   0 ms
+Os([38;2;156;231;201mtrue[0m)            -   0 ms
+Time([38;2;156;231;201mtrue[0m)          -   1 ms
+Time([38;2;156;231;201mtrue[0m)          -   0 ms
+Session([38;2;156;231;201mtrue[0m)       -   0 ms
+Sysinfo([38;2;156;231;201mtrue[0m)       -   0 ms
+Sysinfo([38;2;156;231;201mtrue[0m)       -   1 ms
+Battery([38;2;204;137;214mfalse[0m)      -   1 ms
+Shell([38;2;156;231;201mtrue[0m)         -   0 ms
+Executiontime([38;2;156;231;201mtrue[0m) -   0 ms
+Text([38;2;156;231;201mtrue[0m)          -   0 ms
+Owm([38;2;156;231;201mtrue[0m)           - 134 ms
+Az([38;2;204;137;214mfalse[0m)           -   0 ms
+Azd([38;2;204;137;214mfalse[0m)          -   6 ms
+Aws([38;2;204;137;214mfalse[0m)          -   3 ms
+Gcp([38;2;204;137;214mfalse[0m)          -   1 ms
+Kubectl([38;2;204;137;214mfalse[0m)      -   4 ms
+Project([38;2;204;137;214mfalse[0m)      -   3 ms
+Path([38;2;156;231;201mtrue[0m)          -   8 ms
+Python([38;2;156;231;201mtrue[0m)        -  41 ms
+Go([38;2;204;137;214mfalse[0m)           -  13 ms
+Git([38;2;156;231;201mtrue[0m)           -  76 ms
+Root([38;2;204;137;214mfalse[0m)         -   0 ms
+Status([38;2;204;137;214mfalse[0m)       -   2 ms
+Text([38;2;156;231;201mtrue[0m)          -   0 ms
+
+[1m[38;2;191;207;240mRun duration:[0m 148.1165ms
+
+[1m[38;2;191;207;240mCache path:[0m C:\Users\tibor\AppData\Local\Packages\ohmyposh.cli_96v55e8n804z4\LocalCache\Local\oh-my-posh
+
+[1m[38;2;191;207;240mConfig path:[0m C:\Users\tibor\Documents\Utility\Terminal\OhMyPosh\rthsdev2.omp.json
+[1m[38;2;191;207;240m
+Logs:
+
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.811 [0mdebug.go:38[38;2;156;231;201m →[0m logging enabled, raw mode: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.815 [0mstore.go:]:265[38;2;156;231;201m →[0m (session) key not found: prompt_count_cache
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mstore.go:](session prompt_count_cache) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mterminal.go:setPromptCount() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.815 [0mterminal.go:setPwd:121[38;2;156;231;201m →[0m C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mterminal.go:setPwd() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mterminal.go:Init() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.815 [0mpath_windows.go:PackageFamilyName:49[38;2;156;231;201m →[0m PackageFamilyName: ohmyposh.cli_96v55e8n804z4
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mpath_windows.go:PackageFamilyName() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.815 [0mpath.go:Path() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (device) loading DSC_SHELL
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (device) loading DSC_CONFIGURATION
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:117[38;2;156;231;201m →[0m (device) skipping expired key: version_python
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (device) loading upgrade
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (device) loading accent_color
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (device) loading INITVERSIONPWSH
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.816 [0mstore.go:init(device omp.cache) - [38;2;156;231;201m1.1005ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.816 [0minit.go:SessionID() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.816 [0mpath.go:Path() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading command_path_git.exe
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading CONFIG_SOURCE
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading toggle_cache
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading prompt_count_cache
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading CONFIG
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading template_cache
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mstore.go:init:121[38;2;156;231;201m →[0m (session) loading command_path_python
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.816 [0mstore.go:init(session pwsh.be3c9239-6e18-4983-90ae-bdd3f6d302d5.omp.cache) - [38;2;191;207;240m533.2µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.816 [0mload.go:isTheme:550[38;2;156;231;201m →[0m C:\Users\tibor\Documents\Utility\Terminal\OhMyPosh\rthsdev2.omp.json is not a theme
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.816 [0mload.go:resolveConfigLocation() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.817 [0mstore.go:]:278[38;2;156;231;201m →[0m (device) found entry: DSC_CONFIGURATION - [0x14eb919cc000 0x14eb919cc1c0 0x14eb919cc380 0x14eb919cc540 0x14eb919cc700 0x14eb919cc8c0 0x14eb919cca80 0x14eb919ccc40 0x14eb919cce00]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.817 [0mstore.go:](device DSC_CONFIGURATION) - [38;2;191;207;240m561.1µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.817 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.817 [0mresource.go:Add:48[38;2;156;231;201m →[0m item already exists
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mload.go:read() - [38;2;156;231;201m1.0955ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mstore.go:]:310[38;2;156;231;201m →[0m (session) setting entry: toggle_cache - map[] with duration: infinite
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mstore.go:]:310[38;2;156;231;201m →[0m (device) setting entry: DSC_CONFIGURATION - [0x14eb919cc000 0x14eb919cc1c0 0x14eb919cc380 0x14eb919cc540 0x14eb919cc700 0x14eb919cc8c0 0x14eb919cca80 0x14eb919ccc40 0x14eb919cce00] with duration: infinite
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mstore.go:](device DSC_CONFIGURATION) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mload.go:Parse() - [38;2;156;231;201m1.6566ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mload.go:Load() - [38;2;156;231;201m1.6566ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: template_cache - {map[Executiontime:0x14eb919c6d00 Git:0x14eb91838400 Os:0x14eb919c6e00 Owm:0x14eb919b6620 Path:0x14eb919ee000 Python:0x14eb919beb48 Session:0x14eb919cab40 Shell:0x14eb918247d0 Sysinfo:0x14eb919e3170 Text:0x14eb919cb8f0 Time:0x14eb91824870] map[] ~\Documents\ProgramovanieHPZ4\PyWFP_Todo PyWFP_Todo  tibor HP_Z4G4_TR 7.6.6 pwsh C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo windows 31.4.0 3 0 0 0 false false false false}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mstore.go:](session template_cache) - [38;2;191;207;240m524.8µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mcache.go:restoreCache() - [38;2;191;207;240m524.8µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mwriter.go:Init:301[38;2;156;231;201m →[0m terminal program: Windows Terminal
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mwriter.go:Init:302[38;2;156;231;201m →[0m terminal shell: shell
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Getenv(OMP_CACHE_DISABLED) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mstore.go:]:278[38;2;156;231;201m →[0m (device) found entry: accent_color - 38;2;208;0;12|48;2;208;0;12
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mstore.go:](device accent_color) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mcolors.go:SetAccentColor() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m 7.6.6
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.818 [0mterminal.go:Getenv(POSH_SHELL_VERSION) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mdebug.go:PrintDebug:24[38;2;156;231;201m →[0m segment: Title
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.818 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{ .Folder }}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Os
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Text
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Session
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Sysinfo
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mmap.go:debugf:71[38;2;156;231;201m →[0m windows:  
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.819 [0mmap.go:debugf:71[38;2;156;231;201m →[0m precision: 0
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.819 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Aws
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(SSH_CONNECTION) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(SSH_CLIENT) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Gcp
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mmap.go:debugf:71[38;2;156;231;201m →[0m display_default: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_VAULT) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_DEFAULT_PROFILE) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Time
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_PROFILE) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_REGION) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(CLOUDSDK_CONFIG) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_DEFAULT_REGION) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m C:\Users\tibor\AppData\Roaming
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(APPDATA) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(CLOUDSDK_ACTIVE_CONFIG_NAME) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_ACCESS_KEY_ID) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.820 [0mterminal.go:Getenv(AWS_CONFIG_FILE) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mmap.go:debugf:71[38;2;156;231;201m →[0m time_format: 15:04:05
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Go
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Status
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:StatusCodes() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m status_template: {{ .Code }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.820 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Time
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Git
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m display_mode: files
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m extensions: [*.go go.mod go.sum go.work go.work.sum]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m time_format: Mon,02.01.2006
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m project_files: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{ .Code }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Sysinfo
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:HasParentFilePath(.git) - [38;2;191;207;240m453.3µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mmap.go:debugf:71[38;2;156;231;201m →[0m disable_with_jj: false
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.821 [0mterminal.go:FileContent:423[38;2;156;231;201m →[0m open C:\Users\tibor\AppData\Roaming/gcloud/active_config: The system cannot find the path specified.
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.821 [0mterminal.go:FileContent:423[38;2;156;231;201m →[0m open C:\Users\tibor\.aws\config: The system cannot find the file specified.
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:FileContent(C:\Users\tibor\AppData\Roaming/gcloud/active_config) - [38;2;156;231;201m1.9404ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:FileContent(C:\Users\tibor\.aws\config) - [38;2;191;207;240m963.4µs[0m
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.821 [0mgcp.go:Enabled:34[38;2;156;231;201m →[0m NO ACTIVE CONFIG FOUND
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.821 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.821 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m gitdir_format: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Battery
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m style: agnoster_full
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m display_root: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m cycle: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m folder_separator_template: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m folder_separator_icon: \
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal_windows.go:IsWsl() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m cycle_folder_separator: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m folder_format: %s
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m edge_format: %s
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m left_format: %s
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m right_format: %s
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.823 [0mterminal_windows_nix.go:BatteryState:16[38;2;156;231;201m →[0m no battery
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal_windows_nix.go:BatteryState() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:StackCount() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Owm
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mterminal.go:ResolveSymlink:408[38;2;156;231;201m →[0m C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:ResolveSymlink(C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo) - [38;2;156;231;201m1.0644ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.823 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.823 [0mmap.go:debugf:71[38;2;156;231;201m →[0m units: metric
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m api_key: {{ .Env.POSH_OWM_API_KEY }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:CommandPath:549[38;2;156;231;201m →[0m C:\Users\tibor\AppData\Local\Programs\Python\Python313\python.exe
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:CommandPath(python) - [38;2;156;231;201m1.0123ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Az
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HasParentFilePath(.git) - [38;2;156;231;201m2.0767ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{ (call .Getenv "POSH_OWM_API_KEY") }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: command_path_git.exe - {C:\Program Files\Git\cmd\git.exe 14748442282687371963 true}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mstore.go:](session command_path_git.exe) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:CommandPath:549[38;2;156;231;201m →[0m C:\Program Files\Git\cmd\git.exe
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:CommandPath(git.exe) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HasCommand(git.exe) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m 1ccc01b4b9d559f540a6bfdbc936b0ce
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m source: cli|pwsh
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv(POSH_OWM_API_KEY) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m source: cli
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m api_key (template resolved): 1ccc01b4b9d559f540a6bfdbc936b0ce
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m ignore_status: []
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv(AZURE_CONFIG_DIR) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m location: {{ .Env.POSH_OWM_LOCATION }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{ (call .Getenv "POSH_OWM_LOCATION") }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m status_formats: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m native_status: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m untracked_modes: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m ignore_submodules: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Kubectl
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m parse_kubeconfig: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv(KUBECONFIG) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m Modra,SK
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv(POSH_OWM_LOCATION) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m location (template resolved): Modra,SK
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m units: metric
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m http_timeout: 500
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HasFilesInDir(azureProfile.json) - [38;2;191;207;240m649.6µs[0m
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.824 [0mterminal.go:FileContent:423[38;2;156;231;201m →[0m open C:\Users\tibor\.kube\config: The system cannot find the path specified.
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:FileContent(C:\Users\tibor\.kube\config) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HTTPRequest:662[38;2;156;231;201m ↓
+[0m    GET /data/2.5/weather?q=Modra%2CSK&units=metric&appid=1ccc01b4b9d559f540a6bfdbc936b0ce HTTP/1.1
+    Host: api.openweathermap.org
+    
+    
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m display_error: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:HasFilesInDir(azureProfile.json) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Getenv(POSH_AZURE_SUBSCRIPTION) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mhome.go:12[38;2;156;231;201m →[0m C:\Users\tibor
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:GOOS() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0msegment.go:Execute:231[38;2;156;231;201m →[0m segment: Azd
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mstore.go:]:278[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0msegment.go:isToggled:595[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.824 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.824 [0mmap.go:debugf:71[38;2;156;231;201m →[0m folders: [.azure]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.831 [0mterminal.go:HasParentFilePath(.azure) - [38;2;156;231;201m6.7023ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.831 [0mterminal.go:LsDir:445[38;2;156;231;201m →[0m []
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.831 [0mterminal.go:LsDir(C:\Users\tibor\.azure) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.831 [0mwin32_windows.go:isWriteable:255[38;2;156;231;201m →[0m not current user or in group
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.831 [0mwin32_windows.go:isWriteable:259[38;2;156;231;201m →[0m current user is member of S-1-5-32-544
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.831 [0mwin32_windows.go:isWriteable:267[38;2;156;231;201m ↓
+[0m    WRITE_DAC
+    WRITE_OWNER
+    SYNCHRONIZE
+    DELETE
+    READ_CONTROL
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.831 [0mwin32_windows.go:isWriteable:269[38;2;156;231;201m →[0m user has write access
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.831 [0mterminal_windows.go:DirIsWritable() - [38;2;156;231;201m8.8739ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.832 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.832 [0mterminal.go:HasFilesInDir(pyvenv.cfg) - [38;2;156;231;201m8.8819ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.832 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir(*.go) - [38;2;253;184;109m12.061ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir(go.mod) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir(pyvenv.cfg) - [38;2;191;207;240m979.1µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mmap.go:debugf:71[38;2;156;231;201m →[0m folder_name_fallback: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mmap.go:debugf:71[38;2;156;231;201m →[0m default_venv_names: [.venv venv env .env .python-venv .virtualenv pyenv]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir(go.sum) - [38;2;191;207;240m330µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir(go.work) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.833 [0mterminal.go:HasFilesInDir(go.work.sum) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0msegment.go:Execute:273[38;2;156;231;201m →[0m segment gated (inactive): Go
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.833 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo\.venv
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mterminal.go:Getenv(VIRTUAL_ENV) - [38;2;191;207;240m506.9µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mpython.go:loadContext:135[38;2;156;231;201m →[0m virtual env name: .venv
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mpython.go:loadContext:139[38;2;156;231;201m →[0m virtual env name (fallback): PyWFP_Todo
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mmap.go:debugf:71[38;2;156;231;201m →[0m display_default: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mterminal.go:HasFilesInDir:161[38;2;156;231;201m →[0m true
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mterminal.go:HasFilesInDir(*.py) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mmap.go:debugf:71[38;2;156;231;201m →[0m tooling: [pyenv python python3 py]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mstore.go:]:265[38;2;156;231;201m →[0m (device) key not found: version_python
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mstore.go:](device version_python) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mterminal.go:CommandPath:531[38;2;156;231;201m →[0m C:\Users\tibor\AppData\Local\Programs\Python\Python313\python.exe
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mterminal.go:CommandPath(python) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mterminal.go:Getenv:83[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mterminal.go:Getenv(PYENV_ROOT) - [38;2;191;207;240m0s[0m
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.834 [0mlanguage.go:setVersion:398[38;2;156;231;201m →[0m executable at C:\Users\tibor\AppData\Local\Programs\Python\Python313\python.exe is not a pyenv shim
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.834 [0mterminal.go:CommandPath:531[38;2;156;231;201m →[0m C:\Users\tibor\AppData\Local\Programs\Python\Python313\python.exe
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mterminal.go:CommandPath(python) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.834 [0mterminal.go:HasCommand(python) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.841 [0mjobs_windows.go:RegisterProcess:76[38;2;156;231;201m →[0m no job found for goroutine 38 when assigning pid 11056
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.845 [0mjobs_windows.go:RegisterProcess:76[38;2;156;231;201m →[0m no job found for goroutine 36 when assigning pid 18332
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.864 [0mterminal.go:RunCommandWithEnv:506[38;2;156;231;201m →[0m Python 3.13.15
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.864 [0mterminal.go:RunCommandWithEnv(python --version) - [38;2;253;184;109m30.5673ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.864 [0mmap.go:debugf:71[38;2;156;231;201m →[0m version_url_template: https://docs.python.org/release/{{ .Major }}.{{ .Minor }}.{{ .Patch }}/whatsnew/changelog.html#python-{{ .Major }}-{{ .Minor }}-{{ .Patch }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.864 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m https://docs.python.org/release/{{ .Data.Major }}.{{ .Data.Minor }}.{{ .Data.Patch }}/whatsnew/changelog.html#python-{{ .Data.Major }}-{{ .Data.Minor }}-{{ .Data.Patch }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.864 [0mmap.go:debugf:71[38;2;156;231;201m →[0m cache_duration: 1s
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.864 [0mstore.go:]:310[38;2;156;231;201m →[0m (device) setting entry: version_python - {3.13.15 3 13 15   https://docs.python.org/release/3.13.15/whatsnew/changelog.html#python-3-13-15 python } with duration: 1s
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.864 [0mstore.go:](device version_python) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:RunCommandWithEnv:506[38;2;156;231;201m ↓
+[0m    # branch.oid 171fa6626a1ad38d2b2efbb2a40038af985fbd88
+    # branch.head main
+    # branch.upstream origin/main
+    # branch.ab +0 -5
+    ? debug.txt
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:RunCommandWithEnv(git.exe -C C:/Users/tibor/Documents/ProgramovanieHPZ4/PyWFP_Todo --no-optional-locks -c core.quotepath=false -c color.status=false status -unormal --branch --porcelain=2) - [38;2;253;184;109m72.9554ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m branch_behind_icon: ↓
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m git_icon:  
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m branch_icon: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m mapped_branches: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m branch_template: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFolder:369[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFolder(C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo\.git/rebase-merge) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFolder:369[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFolder(C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo\.git/rebase-apply) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m commit_icon: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:FileContent:428[38;2;156;231;201m ↓
+[0m    [core]
+    	repositoryformatversion = 0
+    	filemode = false
+    	bare = false
+    	logallrefupdates = true
+    	symlinks = false
+    	ignorecase = true
+    [remote "origin"]
+    	url = https://github.com/tirosko/PyWFP_Todo.git
+    	fetch = +refs/heads/*:refs/remotes/origin/*
+    [branch "main"]
+    	remote = origin
+    	merge = refs/heads/main
+    	vscode-merge-base = origin/main
+    [branch "agents/translate-text-to-slovak"]
+    	vscode-merge-base = origin/main
+    
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:FileContent(C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo\.git/config) - [38;2;191;207;240m526µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mgit.go:getRemoteURL:1451[38;2;156;231;201m →[0m remote url found in config: https://github.com/tirosko/PyWFP_Todo.git
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m upstream_icons: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mmap.go:debugf:71[38;2;156;231;201m →[0m github_icon: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir(MERGE_MSG) - [38;2;191;207;240m526µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir(CHERRY_PICK_HEAD) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir(REVERT_HEAD) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir:165[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.897 [0mterminal.go:HasFilesInDir(sequencer/todo) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.956 [0mterminal.go:HTTPRequest:688[38;2;156;231;201m →[0m {"coord":{"lon":17.3071,"lat":48.334},"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03n"}],"base":"stations","main":{"temp":16.1,"feels_like":15.59,"temp_min":15.72,"temp_max":16.29,"pressure":1027,"humidity":70,"sea_level":1027,"grnd_level":987},"visibility":10000,"wind":{"speed":2.06,"deg":350},"clouds":{"all":49},"dt":1791137285,"sys":{"type":2,"id":2100192,"country":"SK","sunrise":1791089628,"sunset":1791131107},"timezone":7200,"id":3058663,"name":"Modra","cod":200}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.956 [0mterminal.go:HTTPRequest(https://api.openweathermap.org/data/2.5/weather?q=Modra%2CSK&units=metric&appid=1ccc01b4b9d559f540a6bfdbc936b0ce) - [38;2;253;122;140m132.0116ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.957 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m 68
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.957 [0mterminal.go:Getenv(POSH_CURSOR_LINE) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.957 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m 1
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.957 [0mterminal.go:Getenv(POSH_CURSOR_COLUMN) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.957 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.957 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.957 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m  {{ if .WSL }}WSL at {{ end }}{{.Data.Icon}}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.957 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [<#ffffff></> {{ .Data.CurrentDate | date .Data.Format }} 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.957 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m <#ffffff></> {{ .Data.CurrentDate | date .Data.Format }}]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [<#ffffff></> {{ .UserName }} <#ffffff></> <i>{{ .HostName }}</i>]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [<#ffffff> MEM:{{ round .Data.PhysicalPercentUsed .Data.Precision }}% 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m RAM:{{ (div ((sub .Data.PhysicalTotalMemory .Data.PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .Data.PhysicalTotalMemory 1073741824.0) }}GB]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [ {{ .Data.Name }}]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [<#ffffff></> {{ .Data.FormattedMs }}s]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{if (call .Getenv "POSH_OWM_LOCATION") }}[ {{ (call .Getenv "POSH_OWM_LOCATION") }}]{{end}}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m Modra,SK
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Getenv(POSH_OWM_LOCATION) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m Modra,SK
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Getenv(POSH_OWM_LOCATION) - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{if (call .Getenv "POSH_OWM_LOCATION") }}[{{.Data.Weather}} {{.Data.Temperature}}{{.Data.UnitIcon}}] {{end}}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Getenv:83[38;2;156;231;201m →[0m Modra,SK
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Getenv(POSH_OWM_LOCATION) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.958 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [<#ffffff></> {{ .Data.Path }}</>]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.958 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m {{ if matchP "^[Cc]:" .AbsolutePWD }}p:diskC-foreground{{ end }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.959 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [ {{ if .Data.Error }}{{ .Data.Error }}{{ else }}{{ if .Data.Venv }}{{.Data.Full }} (.venv){{ else }}{{.Data.Full }}{{ end }}{{ end }}]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m20:13:31.959 [0mtext.go:patchTemplate:167[38;2;156;231;201m →[0m [<#ffffff>{{ .Data.UpstreamIcon }} </>{{ .Data.HEAD }}{{if .Data.BranchStatus }} {{ .Data.BranchStatus }}{{ end }}{{ if .Data.Working.Changed }} <#ffffff></> {{ .Data.Working.String }}{{ end }}{{ if and (.Data.Working.Changed) (.Data.Staging.Changed) }} |{{ end }}{{ if .Data.Staging.Changed }} <#ffffff></> {{ .Data.Staging.String }}{{ end }}{{ if gt .Data.StashCount 0 }} <#ffffff></> {{ .Data.StashCount }}{{ end }}]
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m20:13:31.959 [0mterminal.go:FileContent:423[38;2;156;231;201m →[0m open C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo\.git/logs/refs/stash: The system cannot find the file specified.
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:FileContent(C:\Users\tibor\Documents\ProgramovanieHPZ4\PyWFP_Todo\.git/logs/refs/stash) - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Flags() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mterminal.go:Shell() - [38;2;191;207;240m0s[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m20:13:31.959 [0mpath.go:Path() - [38;2;191;207;240m0s[0m
