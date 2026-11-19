@@ -18,7 +18,33 @@
             padding: 48px 20px;
             background: linear-gradient(145deg, #f3f6f8, #e8f0f3);
         }
+        .planning-background {
+            position: fixed;
+            z-index: 0;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .planning-art {
+            position: absolute;
+            width: clamp(130px, 14vw, 180px);
+            height: auto;
+            opacity: .68;
+            filter: drop-shadow(0 12px 18px #26374612);
+        }
+        .planning-calendar {
+            top: 16%;
+            left: max(16px, calc(50% - 560px));
+            transform: rotate(-7deg);
+        }
+        .planning-checklist {
+            right: max(16px, calc(50% - 560px));
+            bottom: 12%;
+            transform: rotate(6deg);
+        }
         main {
+            position: relative;
+            z-index: 1;
             width: min(100%, 620px);
             margin: 0 auto;
             padding: 36px;
@@ -76,6 +102,29 @@
             border-radius: 10px;
             font: inherit;
         }
+        .time-picker {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 22px;
+            align-items: center;
+            gap: 4px;
+        }
+        .time-adjusters {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+        }
+        .time-adjuster {
+            min-height: 21px;
+            padding: 0;
+            color: #21665d;
+            background: #eaf5f2;
+            line-height: 1;
+        }
+        .time-input {
+            width: 100%;
+            padding: 10px 3px;
+            text-align: center;
+        }
         .date-button {
             overflow: hidden;
             color: #202a35;
@@ -84,7 +133,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        .date-button:focus, .time-input:focus, .calendar button:focus {
+        .date-button:focus, .time-input:focus, .time-adjuster:focus, .calendar button:focus {
             outline: 3px solid #297c7130;
             border-color: #297c71;
         }
@@ -125,15 +174,50 @@
         .calendar-weekdays { margin-bottom: 4px; color: #74808a; font-size: .78rem; }
         .calendar-day {
             min-width: 0;
+            position: relative;
+            width: 100%;
             min-height: 34px;
             padding: 0;
             color: #202a35;
             background: transparent;
             font-weight: 400;
         }
+        .calendar-cell { position: relative; min-width: 0; }
+        .calendar-day.has-tasks {
+            color: #21665d;
+            background: #eaf5f2;
+            box-shadow: inset 0 0 0 1px #acd2ca;
+            font-weight: 700;
+        }
+        .calendar-day.has-tasks::after {
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #d78a42;
+            content: "";
+            transform: translateX(-50%);
+        }
         .calendar-day.outside-month { color: #a7b0b6; }
         .calendar-day[aria-current="date"] { box-shadow: inset 0 0 0 1px #297c71; }
         .calendar-day[aria-selected="true"] { color: #fff; background: #297c71; }
+        .calendar-day[aria-selected="true"].has-tasks::after { background: #fff; }
+        .calendar-day-plan {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            padding: 0;
+            border-radius: 50%;
+            color: #fff;
+            background: #d78a42;
+            font-size: .62rem;
+            line-height: 1;
+        }
         .calendar-help { margin: 10px 0 0; color: #74808a; font-size: .78rem; }
         .form-help { grid-column: 1 / -1; margin: 0; color: #74808a; font-size: .86rem; }
         button {
@@ -143,15 +227,29 @@
             font-weight: 600;
             cursor: pointer;
         }
-        .add-button {
+        .form-actions {
             grid-column: 1 / -1;
+            display: flex;
+            gap: 8px;
+        }
+        .add-button, .cancel-edit-button {
+            flex: 1;
             min-height: 46px;
             padding: 0 20px;
+        }
+        .add-button {
             color: #fff;
             background: #297c71;
         }
         .add-button:hover { background: #21665d; }
+        .cancel-edit-button { color: #53616b; background: #eef1f3; }
         .task-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+        .task-list--scrollable {
+            max-height: 204px;
+            overflow-y: auto;
+            padding-right: 4px;
+            overscroll-behavior: contain;
+        }
         .task {
             display: flex;
             align-items: center;
@@ -172,7 +270,10 @@
             background: #eaf5f2;
         }
         .task.done .toggle-button { color: #fff; background: #297c71; }
+        .task-actions { display: flex; align-items: center; gap: 4px; }
+        .edit-button { padding: 8px 10px; color: #21665d; background: #eaf5f2; }
         .delete-button { padding: 8px 10px; color: #77828b; background: transparent; }
+        .edit-button:hover { background: #dff1ed; }
         .delete-button:hover { color: #a33434; background: #fff1f0; }
         .empty {
             padding: 28px 16px;
@@ -181,6 +282,94 @@
             color: #74808a;
             text-align: center;
         }
+        .day-view {
+            width: min(820px, calc(100vw - 28px));
+            max-width: none;
+            max-height: 88vh;
+            padding: 0;
+            overflow-y: auto;
+            border: 1px solid #dce3e8;
+            border-radius: 18px;
+            color: #202a35;
+            box-shadow: 0 24px 70px #17242f50;
+        }
+        .day-view::backdrop { background: #17242f80; backdrop-filter: blur(2px); }
+        .day-view-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 24px 14px;
+        }
+        .day-view-header .eyebrow { margin-bottom: 4px; }
+        .day-view-header h2 { margin: 0; font-size: 1.45rem; text-transform: capitalize; }
+        .day-view-count { margin: 5px 0 0; color: #74808a; font-size: .9rem; }
+        .day-view-close {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 auto;
+            color: #53616b;
+            background: #eef1f3;
+            font-size: 1.2rem;
+        }
+        .day-view-help { margin: 0; padding: 0 24px 14px; color: #74808a; font-size: .86rem; }
+        .day-view-content { max-height: calc(88vh - 190px); padding: 0 20px 20px; overflow-y: auto; }
+        .day-view-timeline {
+            max-height: min(60vh, 560px);
+            overflow-y: auto;
+            border-top: 1px solid #e6ebef;
+            border-bottom: 1px solid #e6ebef;
+            overscroll-behavior: contain;
+        }
+        .day-hour-row {
+            display: grid;
+            grid-template-columns: 68px minmax(0, 1fr);
+            min-height: 68px;
+        }
+        .day-hour-label {
+            padding: 8px 10px 0 0;
+            color: #74808a;
+            font-size: .78rem;
+            text-align: right;
+        }
+        .day-hour-slot {
+            min-width: 0;
+            min-height: 68px;
+            padding: 4px 10px;
+            border-top: 1px solid #e6ebef;
+            transition: background-color .12s ease;
+        }
+        .day-hour-row:first-child .day-hour-slot { border-top: 0; }
+        .day-hour-row.is-drag-over .day-hour-slot { background: #eaf5f2; }
+        .day-task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 4px;
+            padding: 7px 9px;
+            border-left: 4px solid #297c71;
+            border-radius: 8px;
+            background: #eaf5f2;
+            cursor: grab;
+        }
+        .day-task:active { cursor: grabbing; }
+        .day-task.is-done { border-left-color: #9aa5ac; background: #f0f2f3; }
+        .day-task.is-dragging { opacity: .45; }
+        .day-task-content { min-width: 0; }
+        .day-task-time { display: block; color: #53616b; font-size: .75rem; font-weight: 700; }
+        .day-task-title { display: block; overflow-wrap: anywhere; }
+        .day-task.is-done .day-task-title { color: #89939b; text-decoration: line-through; }
+        .day-task-edit {
+            flex: 0 0 auto;
+            padding: 6px 8px;
+            color: #21665d;
+            background: #fff;
+            font-size: .78rem;
+        }
+        .day-overflow { padding: 12px 0; }
+        .day-overflow h3 { margin: 0 0 6px 68px; color: #74808a; font-size: .8rem; }
+        .day-overflow-tasks { display: grid; gap: 4px; margin-left: 68px; }
         .visually-hidden {
             position: absolute;
             width: 1px;
@@ -192,16 +381,53 @@
             white-space: nowrap;
             border: 0;
         }
+        @media (max-width: 1060px) {
+            .planning-background { display: none; }
+        }
         @media (max-width: 480px) {
             body { padding: 20px 12px; }
             main { padding: 24px 18px; }
             .add-form { grid-template-columns: 1fr; }
-            .form-help, .add-button { grid-column: 1; }
+            .form-help, .form-actions { grid-column: 1; }
             .task { flex-wrap: wrap; }
+            .day-view-header { padding: 18px 16px 12px; }
+            .day-view-help { padding: 0 16px 12px; }
+            .day-view-content { padding: 0 12px 12px; }
+            .day-hour-row { grid-template-columns: 54px minmax(0, 1fr); }
+            .day-overflow h3, .day-overflow-tasks { margin-left: 54px; }
         }
     </style>
 </head>
 <body>
+    <div class="planning-background" aria-hidden="true">
+        <svg class="planning-art planning-calendar" viewBox="0 0 180 190" xmlns="http://www.w3.org/2000/svg">
+            <rect x="17" y="24" width="146" height="148" rx="18" fill="#fff" stroke="#d7e8e4" stroke-width="2"/>
+            <path d="M17 43a19 19 0 0 1 19-19h108a19 19 0 0 1 19 19v22H17z" fill="#dff1ed"/>
+            <path d="M54 17v16M126 17v16" stroke="#297c71" stroke-linecap="round" stroke-width="6"/>
+            <rect x="38" y="82" width="21" height="21" rx="6" fill="#eaf5f2"/>
+            <rect x="80" y="82" width="21" height="21" rx="6" fill="#eaf5f2"/>
+            <rect x="122" y="82" width="21" height="21" rx="6" fill="#eaf5f2"/>
+            <rect x="38" y="119" width="21" height="21" rx="6" fill="#297c71"/>
+            <path d="m43 129 5 5 8-10" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+            <rect x="80" y="119" width="21" height="21" rx="6" fill="#eaf5f2"/>
+            <rect x="122" y="119" width="21" height="21" rx="6" fill="#eaf5f2"/>
+            <circle cx="49" cy="57" r="3" fill="#77aaa0"/>
+            <circle cx="65" cy="57" r="3" fill="#77aaa0"/>
+            <circle cx="81" cy="57" r="3" fill="#77aaa0"/>
+        </svg>
+        <svg class="planning-art planning-checklist" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg">
+            <rect x="24" y="20" width="142" height="156" rx="18" fill="#fff" stroke="#d7e8e4" stroke-width="2"/>
+            <rect x="42" y="39" width="48" height="8" rx="4" fill="#297c71"/>
+            <rect x="42" y="55" width="82" height="5" rx="2.5" fill="#d6e5e2"/>
+            <rect x="42" y="79" width="18" height="18" rx="5" fill="#297c71"/>
+            <path d="m46 88 4 4 7-9" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+            <rect x="69" y="83" width="75" height="5" rx="2.5" fill="#b9d1cc"/>
+            <rect x="42" y="108" width="18" height="18" rx="5" fill="#eaf5f2" stroke="#b9d1cc"/>
+            <rect x="69" y="114" width="63" height="5" rx="2.5" fill="#d6e5e2"/>
+            <rect x="42" y="137" width="18" height="18" rx="5" fill="#eaf5f2" stroke="#b9d1cc"/>
+            <rect x="69" y="143" width="78" height="5" rx="2.5" fill="#d6e5e2"/>
+        </svg>
+    </div>
     <main>
         <header>
             <div>
@@ -225,9 +451,17 @@
                             aria-haspopup="dialog" aria-expanded="false" aria-controls="calendar">
                         <span id="date-button-text">Vybrať dátum</span>
                     </button>
-                    <input class="time-input" id="due-time" type="text" inputmode="text"
-                           placeholder="HH:MM" maxlength="5" autocomplete="off"
-                           aria-label="Čas v 24-hodinovom formáte">
+                    <div class="time-picker">
+                        <input class="time-input" id="due-time" type="text" inputmode="numeric"
+                               placeholder="HH:MM" maxlength="5" autocomplete="off"
+                               aria-label="Čas v 24-hodinovom formáte" aria-describedby="form-help">
+                        <div class="time-adjusters" role="group" aria-label="Ovládanie vybranej časti času">
+                            <button class="time-adjuster" id="time-up" type="button"
+                                    aria-label="Zvýšiť vybranú časť času">↑</button>
+                            <button class="time-adjuster" id="time-down" type="button"
+                                    aria-label="Znížiť vybranú časť času">↓</button>
+                        </div>
+                    </div>
                     <input id="due_at" type="hidden" name="due_at">
                     <div class="calendar" id="calendar" role="dialog" aria-label="Výber dátumu" hidden>
                         <div class="calendar-navigation">
@@ -250,11 +484,14 @@
                     </div>
                 </div>
             </div>
-            <p class="form-help" id="form-help">Vyplň názov úlohy. Termín s dátumom a hodinou je voliteľný.</p>
-            <button class="add-button" type="submit">Pridať úlohu</button>
+            <p class="form-help" id="form-help">Vyplň názov úlohy. Termín s dátumom a hodinou je voliteľný. Zadaj hodinu a potom minúty bez dvojbodky; minúty sa zaokrúhlia na najbližších 5. Čas môžeš meniť aj šípkami pri poli, klávesmi ↑/↓ alebo kolieskom myši.</p>
+            <div class="form-actions">
+                <button class="add-button" id="save-task" type="submit">Pridať úlohu</button>
+                <button class="cancel-edit-button" id="cancel-edit" type="button" hidden>Zrušiť úpravu</button>
+            </div>
         </form>
 
-        <ul class="task-list">
+        <ul class="task-list{% if todos|length > 3 %} task-list--scrollable{% endif %}">
             {% for todo in todos %}
                 <li class="task{% if todo.done %} done{% endif %}">
                     <form action="{{ url_for('toggle', idx=loop.index0) }}" method="post">
@@ -271,14 +508,48 @@
                             </time>
                         {% endif %}
                     </div>
-                    <form action="{{ url_for('delete', idx=loop.index0) }}" method="post">
-                        <button class="delete-button" type="submit">Odstrániť</button>
-                    </form>
+                    <div class="task-actions">
+                        <button class="edit-button" type="button"
+                                data-edit-action="{{ url_for('edit', idx=loop.index0) }}"
+                                data-text="{{ todo.text }}" data-due-at="{{ todo.due_at }}"
+                                aria-label="Upraviť úlohu: {{ todo.text }}">Upraviť</button>
+                        <form action="{{ url_for('delete', idx=loop.index0) }}" method="post">
+                            <button class="delete-button" type="submit">Odstrániť</button>
+                        </form>
+                    </div>
                 </li>
             {% else %}
                 <li class="empty">Zatiaľ tu nemáš žiadne úlohy. Pridaj svoju prvú úlohu vyššie.</li>
             {% endfor %}
         </ul>
+
+        <dialog class="day-view" id="day-view" aria-labelledby="day-view-title" aria-describedby="day-view-help">
+            <header class="day-view-header">
+                <div>
+                    <p class="eyebrow">Denný plán</p>
+                    <h2 id="day-view-title"></h2>
+                    <p class="day-view-count" id="day-view-count"></p>
+                </div>
+                <button class="day-view-close" id="close-day-view" type="button"
+                        aria-label="Zavrieť denný plán">×</button>
+            </header>
+            <p class="day-view-help" id="day-view-help">Potiahni úlohu do iného časového riadka. Minúty zostanú zachované; tlačidlom Upraviť môžeš zmeniť aj názov alebo celý termín.</p>
+            <div class="day-view-content">
+                <section class="day-overflow" id="day-view-before" hidden aria-label="Úlohy pred šiestou">
+                    <h3>Pred 06:00</h3>
+                    <div class="day-overflow-tasks" id="day-view-before-tasks"></div>
+                </section>
+                <div class="day-view-timeline" id="day-view-timeline" role="list"
+                     aria-label="Časová os od 6:00 do 22:00"></div>
+                <section class="day-overflow" id="day-view-after" hidden aria-label="Úlohy po dvadsiatej druhej">
+                    <h3>Po 22:00</h3>
+                    <div class="day-overflow-tasks" id="day-view-after-tasks"></div>
+                </section>
+            </div>
+        </dialog>
+        <form id="reschedule-form" method="post" hidden>
+            <input id="reschedule-due-at" type="hidden" name="due_at">
+        </form>
     </main>
     <script>
         const todoInput = document.getElementById("todo");
@@ -290,6 +561,22 @@
         const dateButtonText = document.getElementById("date-button-text");
         const timeInput = document.getElementById("due-time");
         const dueAtInput = document.getElementById("due_at");
+        const saveTaskButton = document.getElementById("save-task");
+        const cancelEditButton = document.getElementById("cancel-edit");
+        const addFormAction = form.action;
+        const dayView = document.getElementById("day-view");
+        const dayViewTitle = document.getElementById("day-view-title");
+        const dayViewCount = document.getElementById("day-view-count");
+        const dayViewTimeline = document.getElementById("day-view-timeline");
+        const beforeHours = document.getElementById("day-view-before");
+        const beforeHoursTasks = document.getElementById("day-view-before-tasks");
+        const afterHours = document.getElementById("day-view-after");
+        const afterHoursTasks = document.getElementById("day-view-after-tasks");
+        const rescheduleForm = document.getElementById("reschedule-form");
+        const rescheduleDueAt = document.getElementById("reschedule-due-at");
+        let activeTimePart = "hour";
+        let hourDigits = "";
+        let minuteDigits = "";
         const monthNames = [
             "január", "február", "marec", "apríl", "máj", "jún",
             "júl", "august", "september", "október", "november", "december"
@@ -300,6 +587,23 @@
         const today = new Date();
         let selectedDate = null;
         let activeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
+        const scheduledTasks = {{ schedule_tasks|tojson }};
+        const tasksByDate = new Map();
+        let taskToEditAfterDayView = null;
+
+        for (const task of scheduledTasks) {
+            if (!task.due_at) {
+                continue;
+            }
+            const date = task.due_at.slice(0, 10);
+            if (!tasksByDate.has(date)) {
+                tasksByDate.set(date, []);
+            }
+            tasksByDate.get(date).push(task);
+        }
+        for (const tasks of tasksByDate.values()) {
+            tasks.sort((first, second) => first.due_at.localeCompare(second.due_at));
+        }
 
         function dateToIso(date) {
             const year = date.getFullYear();
@@ -341,6 +645,12 @@
                 dayButton.setAttribute("role", "gridcell");
                 dayButton.setAttribute("aria-label",
                     `${weekdayNames[weekday]} ${date.getDate()}. ${monthNames[date.getMonth()]} ${date.getFullYear()}`);
+                const plannedTasks = tasksByDate.get(isoDate) ?? [];
+                if (plannedTasks.length) {
+                    dayButton.classList.add("has-tasks");
+                    dayButton.setAttribute("aria-label",
+                        `${dayButton.getAttribute("aria-label")}, ${plannedTasks.length} plánovaných úloh`);
+                }
                 dayButton.setAttribute("aria-selected",
                     String(Boolean(selectedDate && isoDate === dateToIso(selectedDate))));
                 dayButton.tabIndex = isoDate === dateToIso(activeDate) ? 0 : -1;
@@ -350,7 +660,21 @@
                 if (isoDate === dateToIso(today)) {
                     dayButton.setAttribute("aria-current", "date");
                 }
-                calendarDays.append(dayButton);
+                const dayCell = document.createElement("div");
+                dayCell.className = "calendar-cell";
+                dayCell.append(dayButton);
+                if (plannedTasks.length) {
+                    const dayPlanButton = document.createElement("button");
+                    dayPlanButton.type = "button";
+                    dayPlanButton.className = "calendar-day-plan";
+                    dayPlanButton.dataset.date = isoDate;
+                    dayPlanButton.dataset.viewDay = "";
+                    dayPlanButton.textContent = "↗";
+                    dayPlanButton.setAttribute("aria-label",
+                        `Otvoriť denný plán: ${weekdayNames[weekday]} ${date.getDate()}. ${monthNames[date.getMonth()]}`);
+                    dayCell.append(dayPlanButton);
+                }
+                calendarDays.append(dayCell);
             }
 
             if (moveFocus) {
@@ -395,13 +719,95 @@
             if (!selectedDate && time) {
                 return "Najprv vyber dátum termínu.";
             }
-            if (selectedDate && !time) {
-                return "Zadaj čas termínu v 24-hodinovom formáte, napríklad 14:30.";
+            if (selectedDate && (hourDigits.length === 1 || minuteDigits.length === 1)) {
+                return "Dokonči zadávanie hodiny a minút.";
             }
-            if (time && !/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) {
+            if (selectedDate && !time) {
+                return "Zadaj čas v 24-hodinovom formáte s minútami po 5, napríklad 14:30.";
+            }
+            if (time && !/^([01]\d|2[0-3]):([0-5]\d)$/.test(time)) {
                 return "Zadaj čas v 24-hodinovom formáte, napríklad 14:30.";
             }
+            if (time && Number(time.slice(3)) % 5 !== 0) {
+                return "Minúty musia byť v 5-minútových intervaloch.";
+            }
             return "";
+        }
+
+        function formatTime(hour, minute) {
+            return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+        }
+
+        function commitMinutes(hour, rawMinute) {
+            let roundedMinute = Math.round(rawMinute / 5) * 5;
+            if (roundedMinute === 60) {
+                hour = (hour + 1) % 24;
+                roundedMinute = 0;
+            }
+            timeInput.value = formatTime(hour, roundedMinute);
+            minuteDigits = "";
+            timeInput.setSelectionRange(3, 5);
+            updateDeadline();
+        }
+
+        function changeTimePart(direction) {
+            const match = /^(\d{2}):(\d{2})?$/.exec(timeInput.value);
+            let hour = match ? Number(match[1]) : 0;
+            let minute = match && match[2] ? Number(match[2]) : 0;
+            hourDigits = "";
+            minuteDigits = "";
+            if (activeTimePart === "hour") {
+                hour = (hour + direction + 24) % 24;
+            } else {
+                minute = (minute + direction * 5 + 60) % 60;
+            }
+            timeInput.value = `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+            const cursor = activeTimePart === "hour" ? 0 : 3;
+            timeInput.setSelectionRange(cursor, cursor + 2);
+            updateDeadline();
+        }
+
+        function selectTimePartFromCaret() {
+            hourDigits = "";
+            minuteDigits = "";
+            activeTimePart = (timeInput.selectionStart ?? 0) >= 3 ? "minute" : "hour";
+        }
+
+        function enterTimeDigit(digit) {
+            const match = /^(\d{2}):(\d{2})?$/.exec(timeInput.value);
+            const currentHour = match ? Number(match[1]) : 0;
+            const currentMinute = match && match[2] ? match[2] : "";
+
+            if (activeTimePart === "hour") {
+                hourDigits = `${hourDigits}${digit}`.slice(-2);
+                const hour = Number(hourDigits);
+                timeInput.value = `${String(hour).padStart(2, "0")}:${currentMinute}`;
+                if (hourDigits.length === 2) {
+                    if (hour > 23) {
+                        hourDigits = digit;
+                        timeInput.value = `${String(Number(hourDigits)).padStart(2, "0")}:${currentMinute}`;
+                        timeInput.setSelectionRange(0, 2);
+                        updateDeadline();
+                        return;
+                    }
+                    hourDigits = "";
+                    activeTimePart = "minute";
+                    minuteDigits = "";
+                    timeInput.setSelectionRange(3, 5);
+                } else {
+                    timeInput.setSelectionRange(0, 2);
+                }
+            } else {
+                minuteDigits = `${minuteDigits}${digit}`.slice(-2);
+                const minute = Number(minuteDigits);
+                timeInput.value = `${String(currentHour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+                if (minuteDigits.length === 2) {
+                    commitMinutes(currentHour, minute);
+                    return;
+                }
+                timeInput.setSelectionRange(3, 5);
+            }
+            updateDeadline();
         }
 
         function updateDeadline() {
@@ -412,6 +818,178 @@
                 : "";
         }
 
+        function resetTaskForm() {
+            form.action = addFormAction;
+            todoInput.value = "";
+            selectedDate = null;
+            activeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
+            dateButtonText.textContent = "Vybrať dátum";
+            timeInput.value = "";
+            dueAtInput.value = "";
+            activeTimePart = "hour";
+            hourDigits = "";
+            minuteDigits = "";
+            saveTaskButton.textContent = "Pridať úlohu";
+            cancelEditButton.hidden = true;
+            updateDeadline();
+        }
+
+        function loadTaskForEditing(button) {
+            form.action = button.dataset.editAction;
+            todoInput.value = button.dataset.text;
+            const dueAt = button.dataset.dueAt;
+            if (dueAt) {
+                const [date, time] = dueAt.split("T");
+                const [year, month, day] = date.split("-").map(Number);
+                selectedDate = new Date(year, month - 1, day, 12);
+                activeDate = selectedDate;
+                dateButtonText.textContent = formatDate(selectedDate);
+                timeInput.value = time;
+            } else {
+                selectedDate = null;
+                timeInput.value = "";
+                dateButtonText.textContent = "Vybrať dátum";
+            }
+            activeTimePart = "hour";
+            hourDigits = "";
+            minuteDigits = "";
+            saveTaskButton.textContent = "Uložiť zmeny";
+            cancelEditButton.hidden = false;
+            updateDeadline();
+            todoInput.focus({ preventScroll: true });
+            form.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        function createDayTaskCard(task) {
+            const card = document.createElement("article");
+            card.className = `day-task${task.done ? " is-done" : ""}`;
+            card.draggable = true;
+
+            const content = document.createElement("div");
+            content.className = "day-task-content";
+            const time = document.createElement("time");
+            time.className = "day-task-time";
+            time.textContent = task.due_at.slice(11, 16);
+            const title = document.createElement("span");
+            title.className = "day-task-title";
+            title.textContent = task.text;
+            content.append(time, title);
+
+            const editButton = document.createElement("button");
+            editButton.type = "button";
+            editButton.className = "day-task-edit";
+            editButton.textContent = "Upraviť";
+            editButton.dataset.editAction = task.edit_url;
+            editButton.dataset.text = task.text;
+            editButton.dataset.dueAt = task.due_at;
+            editButton.addEventListener("click", () => {
+                taskToEditAfterDayView = editButton;
+                dayView.close();
+            });
+            card.append(content, editButton);
+            card.addEventListener("dragstart", (event) => {
+                if (event.target.closest("button")) {
+                    event.preventDefault();
+                    return;
+                }
+                event.dataTransfer.setData("text/plain", task.reschedule_url);
+                event.dataTransfer.effectAllowed = "move";
+                card.classList.add("is-dragging");
+            });
+            card.addEventListener("dragend", () => card.classList.remove("is-dragging"));
+            return card;
+        }
+
+        function openDayView(date) {
+            const dateKey = dateToIso(date);
+            const tasks = tasksByDate.get(dateKey) ?? [];
+            dayViewTitle.textContent =
+                `${weekdayNames[(date.getDay() + 6) % 7]}, ${date.getDate()}. ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            const taskWord = tasks.length === 1 ? "úloha" : tasks.length < 5 ? "úlohy" : "úloh";
+            dayViewCount.textContent = `${tasks.length} ${taskWord}`;
+            dayViewTimeline.replaceChildren();
+            beforeHoursTasks.replaceChildren();
+            afterHoursTasks.replaceChildren();
+
+            const tasksByHour = new Map();
+            const earlierTasks = [];
+            const laterTasks = [];
+            for (const task of tasks) {
+                const hour = Number(task.due_at.slice(11, 13));
+                if (hour < 6) {
+                    earlierTasks.push(task);
+                } else if (hour > 22) {
+                    laterTasks.push(task);
+                } else {
+                    if (!tasksByHour.has(hour)) {
+                        tasksByHour.set(hour, []);
+                    }
+                    tasksByHour.get(hour).push(task);
+                }
+            }
+
+            beforeHours.hidden = earlierTasks.length === 0;
+            afterHours.hidden = laterTasks.length === 0;
+            for (const task of earlierTasks) {
+                beforeHoursTasks.append(createDayTaskCard(task));
+            }
+            for (const task of laterTasks) {
+                afterHoursTasks.append(createDayTaskCard(task));
+            }
+
+            for (let hour = 6; hour <= 22; hour += 1) {
+                const hourRow = document.createElement("div");
+                hourRow.className = "day-hour-row";
+                hourRow.dataset.dropHour = String(hour);
+                hourRow.dataset.date = dateKey;
+                hourRow.setAttribute("role", "listitem");
+                hourRow.setAttribute("aria-label", `${String(hour).padStart(2, "0")}:00`);
+
+                const hourLabel = document.createElement("span");
+                hourLabel.className = "day-hour-label";
+                hourLabel.textContent = `${String(hour).padStart(2, "0")}:00`;
+                const hourSlot = document.createElement("div");
+                hourSlot.className = "day-hour-slot";
+                for (const task of tasksByHour.get(hour) ?? []) {
+                    hourSlot.append(createDayTaskCard(task));
+                }
+                hourRow.append(hourLabel, hourSlot);
+                dayViewTimeline.append(hourRow);
+            }
+
+            if (!dayView.open) {
+                dayView.showModal();
+            }
+            const firstTaskInTimeline = tasks.find((task) => {
+                const hour = Number(task.due_at.slice(11, 13));
+                return hour >= 6 && hour <= 22;
+            });
+            if (firstTaskInTimeline) {
+                const hour = Number(firstTaskInTimeline.due_at.slice(11, 13));
+                const firstTaskRow = dayViewTimeline.querySelector(`[data-drop-hour="${hour}"]`);
+                dayViewTimeline.scrollTop = firstTaskRow.getBoundingClientRect().top
+                    - dayViewTimeline.getBoundingClientRect().top + dayViewTimeline.scrollTop;
+            }
+            document.getElementById("close-day-view").focus();
+        }
+
+        document.querySelectorAll(".edit-button").forEach((button) => {
+            button.addEventListener("click", () => loadTaskForEditing(button));
+        });
+        cancelEditButton.addEventListener("click", resetTaskForm);
+        document.getElementById("close-day-view").addEventListener("click", () => dayView.close());
+        dayView.addEventListener("close", () => {
+            if (taskToEditAfterDayView) {
+                const taskButton = taskToEditAfterDayView;
+                taskToEditAfterDayView = null;
+                loadTaskForEditing(taskButton);
+            }
+        });
+        dayView.addEventListener("click", (event) => {
+            if (event.target === dayView) {
+                dayView.close();
+            }
+        });
         calendarToggle.addEventListener("click", () => {
             if (calendar.hidden) {
                 openCalendar();
@@ -426,11 +1004,56 @@
             moveActiveDate(monthDate(activeDate, 1));
         });
         calendarDays.addEventListener("click", (event) => {
+            const dayPlanButton = event.target.closest("[data-view-day]");
+            if (dayPlanButton) {
+                const [year, month, day] = dayPlanButton.dataset.date.split("-").map(Number);
+                openDayView(new Date(year, month - 1, day, 12));
+                return;
+            }
             const dayButton = event.target.closest("[data-date]");
             if (dayButton) {
                 const [year, month, day] = dayButton.dataset.date.split("-").map(Number);
                 selectDate(new Date(year, month - 1, day, 12));
             }
+        });
+        dayViewTimeline.addEventListener("dragover", (event) => {
+            const hourRow = event.target.closest("[data-drop-hour]");
+            if (!hourRow) {
+                return;
+            }
+            event.preventDefault();
+            dayViewTimeline.querySelectorAll(".is-drag-over").forEach((row) => {
+                row.classList.remove("is-drag-over");
+            });
+            hourRow.classList.add("is-drag-over");
+            event.dataTransfer.dropEffect = "move";
+        });
+        dayViewTimeline.addEventListener("dragleave", (event) => {
+            const hourRow = event.target.closest("[data-drop-hour]");
+            if (hourRow && !hourRow.contains(event.relatedTarget)) {
+                hourRow.classList.remove("is-drag-over");
+            }
+        });
+        dayViewTimeline.addEventListener("drop", (event) => {
+            const hourRow = event.target.closest("[data-drop-hour]");
+            if (!hourRow) {
+                return;
+            }
+            event.preventDefault();
+            const rescheduleUrl = event.dataTransfer.getData("text/plain");
+            const task = scheduledTasks.find((scheduledTask) =>
+                scheduledTask.reschedule_url === rescheduleUrl);
+            if (!task) {
+                return;
+            }
+            const minute = task.due_at.slice(14, 16);
+            const dueAt = `${hourRow.dataset.date}T${String(hourRow.dataset.dropHour).padStart(2, "0")}:${minute}`;
+            if (dueAt === task.due_at) {
+                return;
+            }
+            rescheduleForm.action = task.reschedule_url;
+            rescheduleDueAt.value = dueAt;
+            rescheduleForm.requestSubmit();
         });
         calendar.addEventListener("keydown", (event) => {
             if (event.key === "Escape") {
@@ -467,7 +1090,44 @@
                 closeCalendar(false);
             }
         });
-        timeInput.addEventListener("input", updateDeadline);
+        timeInput.addEventListener("input", () => {
+            hourDigits = "";
+            minuteDigits = "";
+            updateDeadline();
+        });
+        timeInput.addEventListener("click", selectTimePartFromCaret);
+        timeInput.addEventListener("keydown", (event) => {
+            if (/^\d$/.test(event.key)) {
+                event.preventDefault();
+                enterTimeDigit(event.key);
+            } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+                changeTimePart(event.key === "ArrowUp" ? 1 : -1);
+            } else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                event.preventDefault();
+                hourDigits = "";
+                minuteDigits = "";
+                activeTimePart = event.key === "ArrowRight" ? "minute" : "hour";
+                const cursor = activeTimePart === "hour" ? 0 : 3;
+                timeInput.setSelectionRange(cursor, cursor + 2);
+            }
+        });
+        timeInput.addEventListener("blur", () => {
+            if (activeTimePart === "minute" && minuteDigits.length === 1) {
+                const match = /^(\d{2}):\d{1,2}$/.exec(timeInput.value);
+                if (match) {
+                    commitMinutes(Number(match[1]), Number(minuteDigits));
+                }
+            }
+        });
+        timeInput.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            changeTimePart(event.deltaY < 0 ? 1 : -1);
+        }, { passive: false });
+        document.getElementById("time-up").addEventListener("mousedown", (event) => event.preventDefault());
+        document.getElementById("time-down").addEventListener("mousedown", (event) => event.preventDefault());
+        document.getElementById("time-up").addEventListener("click", () => changeTimePart(1));
+        document.getElementById("time-down").addEventListener("click", () => changeTimePart(-1));
         form.addEventListener("submit", (event) => {
             updateDeadline();
             if (deadlineError()) {

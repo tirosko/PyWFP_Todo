@@ -1,2 +1,4 @@
-0;2026-11-23T15:30;Programovanie JD
-0;2026-11-24T15:30;Oprava programovania
+0;2026-11-23T15:30;Programovanie Jakub
+0;2026-11-25T10:55;Test
+0;2026-12-03T18:00;Koncert Agi
+0;2026-11-26T16:30;Orientačný beh

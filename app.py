@@ -53,10 +53,30 @@ def save_todos(todos):
                 tasks_file.write(f"{done_value};{todo['text']}\n")
 
 
+def parse_due_at(due_at):
+    if not due_at:
+        return ""
+    try:
+        parsed_due_at = datetime.strptime(due_at, "%Y-%m-%dT%H:%M")
+    except ValueError:
+        abort(400, description="Zadaný termín nie je platný.")
+    if parsed_due_at.minute % 5:
+        abort(400, description="Minúty musia byť v 5-minútových intervaloch.")
+    return parsed_due_at.strftime("%Y-%m-%dT%H:%M")
+
+
 @app.route("/")
 def index():
     todos = load_todos()
-    return render_template("index.html", todos=todos)
+    schedule_tasks = [
+        {
+            **todo,
+            "edit_url": url_for("edit", idx=idx),
+            "reschedule_url": url_for("reschedule", idx=idx),
+        }
+        for idx, todo in enumerate(todos)
+    ]
+    return render_template("index.html", todos=todos, schedule_tasks=schedule_tasks)
 
 
 @app.route("/add", methods=["POST"])
@@ -64,14 +84,38 @@ def add():
     text = request.form.get("todo", "").strip()
     due_at = request.form.get("due_at", "").strip()
     if text:
-        if due_at:
-            try:
-                due_at = datetime.strptime(due_at, "%Y-%m-%dT%H:%M").strftime("%Y-%m-%dT%H:%M")
-            except ValueError:
-                abort(400, description="Zadaný termín nie je platný.")
+        due_at = parse_due_at(due_at)
         todos = load_todos()
         todos.append({"text": text, "done": False, "due_at": due_at})
         save_todos(todos)
+    return redirect(url_for("index"))
+
+
+@app.route("/edit/<int:idx>", methods=["POST"])
+def edit(idx):
+    todos = load_todos()
+    if idx < 0 or idx >= len(todos):
+        abort(404)
+    text = request.form.get("todo", "").strip()
+    if not text:
+        abort(400, description="Názov úlohy nesmie byť prázdny.")
+    due_at = parse_due_at(request.form.get("due_at", "").strip())
+    todos[idx]["text"] = text
+    todos[idx]["due_at"] = due_at
+    save_todos(todos)
+    return redirect(url_for("index"))
+
+
+@app.route("/reschedule/<int:idx>", methods=["POST"])
+def reschedule(idx):
+    todos = load_todos()
+    if idx < 0 or idx >= len(todos):
+        abort(404)
+    due_at = parse_due_at(request.form.get("due_at", "").strip())
+    if not due_at:
+        abort(400, description="Úloha musí mať zadaný termín.")
+    todos[idx]["due_at"] = due_at
+    save_todos(todos)
     return redirect(url_for("index"))
 
 
