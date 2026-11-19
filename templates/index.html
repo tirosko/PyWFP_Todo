@@ -587,7 +587,7 @@
         const today = new Date();
         let selectedDate = null;
         let activeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
-        const scheduledTasks = {{ schedule_tasks|tojson }};
+        const scheduledTasks = JSON.parse('{{ schedule_tasks|default([])|tojson|safe }}');
         const tasksByDate = new Map();
         let taskToEditAfterDayView = null;
 
