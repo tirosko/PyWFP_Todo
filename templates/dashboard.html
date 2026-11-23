@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5f7">
+    <title>Prehľad | Moje úlohy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar" aria-label="Hlavná navigácia">
+            <a class="brand" href="{{ url_for('index') }}">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="m6 12 4 4 8-9" stroke="currentColor" stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="2.6"/>
+                    </svg>
+                </span>
+                <span>Plánovač</span>
+            </a>
+
+            <p class="sidebar-label">PRACOVNÝ PRIESTOR</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link is-active" href="{{ url_for('index') }}" aria-current="page">
+                    <span class="nav-symbol" aria-hidden="true">⌂</span>
+                    <span>Prehľad</span>
+                </a>
+                <a class="nav-link" href="{{ url_for('tasks') }}">
+                    <span class="nav-symbol nav-symbol--list" aria-hidden="true">☷</span>
+                    <span>Všetky úlohy</span>
+                </a>
+                <a class="nav-link" href="{{ url_for('tasks', view='today') }}">
+                    <span class="nav-symbol nav-symbol--today" aria-hidden="true">◷</span>
+                    <span>Dnes</span>
+                    <span class="nav-count">{{ today_count }}</span>
+                </a>
+                <a class="nav-link" href="{{ url_for('tasks', view='scheduled') }}">
+                    <span class="nav-symbol nav-symbol--scheduled" aria-hidden="true">▦</span>
+                    <span>Naplánované</span>
+                </a>
+                <a class="nav-link" href="{{ url_for('tasks', view='completed') }}">
+                    <span class="nav-symbol nav-symbol--completed" aria-hidden="true">✓</span>
+                    <span>Dokončené</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="local-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Úlohy uložené lokálne</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">OSOBNÝ PLÁNOVAČ</p>
+                    <h1>Prehľad</h1>
+                    <p class="today-label">{{ today_label }}</p>
+                </div>
+                <button class="add-task-button" data-open-dashboard-add type="button"
+                        aria-haspopup="dialog" aria-controls="dashboard-add-dialog">
+                    <span aria-hidden="true">+</span>
+                    <span>Nová úloha</span>
+                </button>
+            </header>
+
+            <section class="welcome-card" aria-labelledby="welcome-title">
+                <div class="welcome-copy">
+                    <p class="welcome-kicker">TVOJ DEŇ, TVOJE TEMPO</p>
+                    <h2 id="welcome-title">Urob si priestor na to dôležité.</h2>
+                    <p>Máš pred sebou {% if active_count == 1 %}1 otvorenú úlohu{% elif active_count < 5 %}{{ active_count }} otvorené úlohy{% else %}{{ active_count }} otvorených úloh{% endif %}. Začni tým najbližším.</p>
+                    <a class="welcome-link" href="{{ url_for('tasks') }}">Pozrieť všetky úlohy <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="welcome-art" aria-hidden="true">
+                    <div class="art-card art-card--back"></div>
+                    <div class="art-card art-card--front">
+                        <span class="art-check"></span><span class="art-line art-line--long"></span>
+                        <span class="art-check art-check--done">✓</span><span class="art-line"></span>
+                        <span class="art-check"></span><span class="art-line art-line--short"></span>
+                    </div>
+                    <span class="art-spark art-spark--one">✦</span>
+                    <span class="art-spark art-spark--two">✦</span>
+                </div>
+            </section>
+
+            <section class="overview-section" aria-labelledby="overview-title">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="overview-title">Tvoje zoznamy</h2>
+                        <p>Rýchly pohľad na všetko, čo máš rozpracované.</p>
+                    </div>
+                    <a href="{{ url_for('tasks') }}">Zobraziť všetky <span aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="summary-grid">
+                    <a class="summary-card summary-card--blue" href="{{ url_for('tasks', view='today') }}">
+                        <div class="summary-top">
+                            <span class="summary-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <rect x="3.5" y="5" width="17" height="16" rx="3.5" stroke="currentColor" stroke-width="1.8"/>
+                                    <path d="M7.5 3.5v3M16.5 3.5v3M4 9.5h16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                                    <path d="M8 13h3M8 16h3" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                                </svg>
+                            </span>
+                            <span class="summary-count">{{ today_count }}</span>
+                        </div>
+                        <h3>Dnes</h3>
+                        <p>Úlohy s dnešným termínom</p>
+                    </a>
+
+                    <a class="summary-card summary-card--orange" href="{{ url_for('tasks', view='scheduled') }}">
+                        <div class="summary-top">
+                            <span class="summary-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                                    <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+                                </svg>
+                            </span>
+                            <span class="summary-count">{{ scheduled_count }}</span>
+                        </div>
+                        <h3>Naplánované</h3>
+                        <p>Otvorené úlohy s termínom</p>
+                    </a>
+
+                    <a class="summary-card summary-card--purple" href="{{ url_for('tasks', view='all') }}">
+                        <div class="summary-top">
+                            <span class="summary-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M8 6h12M8 12h12M8 18h12" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                                    <circle cx="4" cy="6" r="1" fill="currentColor"/>
+                                    <circle cx="4" cy="12" r="1" fill="currentColor"/>
+                                    <circle cx="4" cy="18" r="1" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="summary-count">{{ total_count }}</span>
+                        </div>
+                        <h3>Všetky úlohy</h3>
+                        <p>Celý tvoj zoznam na jednom mieste</p>
+                    </a>
+
+                    <a class="summary-card summary-card--green" href="{{ url_for('tasks', view='completed') }}">
+                        <div class="summary-top">
+                            <span class="summary-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                                    <path d="m8 12 2.6 2.6L16.5 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+                                </svg>
+                            </span>
+                            <span class="summary-count">{{ completed_count }}</span>
+                        </div>
+                        <h3>Dokončené</h3>
+                        <p>Hotové veci, na ktoré môžeš byť hrdý</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="details-grid" aria-label="Podrobnosti o úlohách">
+                <article class="panel upcoming-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="panel-kicker">ČO ŤA ČAKÁ</p>
+                            <h2>Najbližšie termíny</h2>
+                        </div>
+                        <a class="panel-link" href="{{ url_for('tasks', view='scheduled') }}" aria-label="Zobraziť naplánované úlohy">→</a>
+                    </div>
+
+                    {% if overdue_count %}
+                        <a class="overdue-banner" href="{{ url_for('tasks', view='overdue') }}">
+                            <span><strong>{{ overdue_count }}</strong> {% if overdue_count == 1 %}úloha je po termíne{% elif overdue_count < 5 %}úlohy sú po termíne{% else %}úloh je po termíne{% endif %}</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    {% endif %}
+
+                    {% if upcoming_tasks %}
+                        <ul class="upcoming-list">
+                            {% for todo in upcoming_tasks %}
+                                <li class="upcoming-item">
+                                    <span class="reminder-dot" aria-hidden="true"></span>
+                                    <div class="reminder-copy">
+                                        <span class="reminder-title">{{ todo.text }}</span>
+                                        <time datetime="{{ todo.due_at }}">{{ todo.due_at|format_due_at }}</time>
+                                    </div>
+                                    <a class="reminder-open" href="{{ url_for('tasks', view='scheduled') }}"
+                                       aria-label="Otvoriť naplánované úlohy">›</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="upcoming-empty">
+                            <span class="empty-check" aria-hidden="true">✓</span>
+                            <p>Žiadne ďalšie blízke termíny.</p>
+                            <button class="upcoming-add-link" type="button" data-open-dashboard-add>Pridať úlohu</button>
+                        </div>
+                    {% endif %}
+                </article>
+
+                <article class="panel progress-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="panel-kicker">MALÉ KROKY SA POČÍTAJÚ</p>
+                            <h2>Tvoj pokrok</h2>
+                        </div>
+                        <span class="progress-badge">{{ completion_percent }}%</span>
+                    </div>
+                    <div class="progress-summary">
+                        <span class="progress-number">{{ completed_count }}</span>
+                        <span class="progress-copy">z {{ total_count }} úloh dokončených</span>
+                    </div>
+                    <div class="progress-track" role="progressbar" aria-label="Dokončené úlohy"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ completion_percent }}">
+                        <span style="width: {{ completion_percent }}%"></span>
+                    </div>
+                    <div class="progress-footer">
+                        <span>Otvorené úlohy</span>
+                        <strong>{{ active_count }}</strong>
+                    </div>
+                    <div class="progress-footer progress-footer--last">
+                        <span>Bez termínu</span>
+                        <strong>{{ active_count - scheduled_count }}</strong>
+                    </div>
+                    <a class="all-tasks-link" href="{{ url_for('tasks') }}">Prejsť na zoznam úloh <span aria-hidden="true">→</span></a>
+                </article>
+            </section>
+        </main>
+    </div>
+    <dialog class="dashboard-add-dialog" id="dashboard-add-dialog"
+            aria-labelledby="dashboard-add-title">
+        <form class="dashboard-add-form" action="{{ url_for('add') }}" method="post">
+            <input type="hidden" name="return_to" value="dashboard">
+            <header class="dashboard-dialog-header">
+                <div>
+                    <p class="panel-kicker">NOVÁ PRIPOMIENKA</p>
+                    <h2 id="dashboard-add-title">Pridať úlohu</h2>
+                </div>
+                <button class="dashboard-dialog-close" id="close-dashboard-add" type="button"
+                        aria-label="Zavrieť okno">×</button>
+            </header>
+            <label class="dialog-field dialog-field--wide">
+                <span>Názov</span>
+                <input type="text" name="todo" placeholder="Čo treba urobiť?" required autofocus>
+            </label>
+            <label class="dialog-field dialog-field--wide">
+                <span>Popis</span>
+                <textarea name="description" rows="3" placeholder="Doplň podrobnosti"></textarea>
+            </label>
+            <input type="hidden" name="due_at">
+            <label class="dialog-field">
+                <span>Dátum</span>
+                <input type="date" name="due_date">
+            </label>
+            <label class="dialog-field">
+                <span>Čas</span>
+                <input type="time" name="due_time" step="300">
+            </label>
+            <label class="dialog-field">
+                <span>Miesto</span>
+                <input type="text" name="location" placeholder="Kde sa to uskutoční?">
+            </label>
+            <label class="dialog-field">
+                <span>URL adresa</span>
+                <input type="url" name="url" placeholder="https://...">
+            </label>
+            <footer class="dashboard-dialog-actions">
+                <button class="dialog-cancel" id="cancel-dashboard-add" type="button">Zrušiť</button>
+                <button class="dialog-submit" type="submit">Pridať úlohu</button>
+            </footer>
+        </form>
+    </dialog>
+    <script>
+        const addDialog = document.getElementById("dashboard-add-dialog");
+        const dashboardAddForm = addDialog.querySelector("form");
+        const dashboardDate = dashboardAddForm.elements.due_date;
+        const dashboardTime = dashboardAddForm.elements.due_time;
+        document.querySelectorAll("[data-open-dashboard-add]").forEach((button) => {
+            button.addEventListener("click", () => {
+                addDialog.showModal();
+                addDialog.querySelector('[name="todo"]').focus();
+            });
+        });
+        document.getElementById("close-dashboard-add").addEventListener("click", () => addDialog.close());
+        document.getElementById("cancel-dashboard-add").addEventListener("click", () => addDialog.close());
+        addDialog.addEventListener("click", (event) => {
+            if (event.target === addDialog) {
+                addDialog.close();
+            }
+        });
+        dashboardAddForm.addEventListener("submit", (event) => {
+            dashboardDate.setCustomValidity("");
+            dashboardTime.setCustomValidity("");
+            if (Boolean(dashboardDate.value) !== Boolean(dashboardTime.value)) {
+                const message = dashboardDate.value
+                    ? "Zadaj aj čas úlohy."
+                    : "Zadaj aj dátum úlohy.";
+                (dashboardDate.value ? dashboardTime : dashboardDate).setCustomValidity(message);
+                event.preventDefault();
+                dashboardAddForm.reportValidity();
+                return;
+            }
+            dashboardAddForm.elements.due_at.value = dashboardDate.value && dashboardTime.value
+                ? `${dashboardDate.value}T${dashboardTime.value}`
+                : "";
+        });
+        dashboardDate.addEventListener("input", () => dashboardDate.setCustomValidity(""));
+        dashboardTime.addEventListener("input", () => dashboardTime.setCustomValidity(""));
+        if ({{ "true" if open_add_dialog else "false" }}) {
+            addDialog.showModal();
+            addDialog.querySelector('[name="todo"]').focus();
+        }
+    </script>
+</body>
+</html>

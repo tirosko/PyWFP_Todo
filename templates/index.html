@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Moje úlohy</title>
+    <meta name="theme-color" content="#f5f5f7">
+    <title>{{ task_title }} | Plánovač</title>
     <style>
         :root {
             color-scheme: light;
@@ -70,6 +71,15 @@
         }
         h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.4rem); }
         .count { color: #74808a; font-size: .95rem; }
+        .dashboard-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #297c71;
+            font-size: .84rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .dashboard-link:hover { text-decoration: underline; }
         .add-form {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(190px, 230px);
@@ -77,6 +87,7 @@
             gap: 12px;
             margin-bottom: 24px;
         }
+        .add-form[hidden] { display: none; }
         .field { display: grid; gap: 6px; }
         .field-label { color: #53616b; font-size: .86rem; font-weight: 600; }
         input {
@@ -397,8 +408,9 @@
             .day-overflow h3, .day-overflow-tasks { margin-left: 54px; }
         }
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
 </head>
-<body>
+<body class="task-view">
     <div class="planning-background" aria-hidden="true">
         <svg class="planning-art planning-calendar" viewBox="0 0 180 190" xmlns="http://www.w3.org/2000/svg">
             <rect x="17" y="24" width="146" height="148" rx="18" fill="#fff" stroke="#d7e8e4" stroke-width="2"/>
@@ -428,22 +440,85 @@
             <rect x="69" y="143" width="78" height="5" rx="2.5" fill="#d6e5e2"/>
         </svg>
     </div>
-    <main>
-        <header>
+    <div class="dashboard-shell">
+        <aside class="sidebar" aria-label="Hlavná navigácia">
+            <a class="brand" href="{{ url_for('index') }}">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="m6 12 4 4 8-9" stroke="currentColor" stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="2.6"/>
+                    </svg>
+                </span>
+                <span>Plánovač</span>
+            </a>
+            <p class="sidebar-label">PRACOVNÝ PRIESTOR</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="{{ url_for('index') }}">
+                    <span class="nav-symbol" aria-hidden="true">⌂</span>
+                    <span>Prehľad</span>
+                </a>
+                <a class="nav-link{% if view == 'all' %} is-active{% endif %}"
+                   href="{{ url_for('tasks') }}"{% if view == 'all' %} aria-current="page"{% endif %}>
+                    <span class="nav-symbol nav-symbol--list" aria-hidden="true">☷</span>
+                    <span>Všetky úlohy</span>
+                </a>
+                <a class="nav-link{% if view == 'today' %} is-active{% endif %}"
+                   href="{{ url_for('tasks', view='today') }}"{% if view == 'today' %} aria-current="page"{% endif %}>
+                    <span class="nav-symbol nav-symbol--today" aria-hidden="true">◷</span>
+                    <span>Dnes</span>
+                    <span class="nav-count">{{ today_count }}</span>
+                </a>
+                <a class="nav-link{% if view == 'scheduled' %} is-active{% endif %}"
+                   href="{{ url_for('tasks', view='scheduled') }}"{% if view == 'scheduled' %} aria-current="page"{% endif %}>
+                    <span class="nav-symbol nav-symbol--scheduled" aria-hidden="true">▦</span>
+                    <span>Naplánované</span>
+                </a>
+                <a class="nav-link{% if view == 'completed' %} is-active{% endif %}"
+                   href="{{ url_for('tasks', view='completed') }}"{% if view == 'completed' %} aria-current="page"{% endif %}>
+                    <span class="nav-symbol nav-symbol--completed" aria-hidden="true">✓</span>
+                    <span>Dokončené</span>
+                </a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="local-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Úlohy uložené lokálne</span>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content task-page">
+        <header class="page-header">
             <div>
                 <p class="eyebrow">Plán na každý deň</p>
-                <h1>Moje úlohy</h1>
+                <h1>{{ task_title }}</h1>
+                <p class="today-label">Usporiadaj si úlohy a termíny na jednom mieste.</p>
             </div>
-            <span class="count">{{ todos|length }} úloh</span>
+            {% if view != "completed" %}
+                <button class="add-task-button" id="open-add-task" type="button"
+                        aria-haspopup="dialog" aria-controls="add-task-dialog">
+                    <span aria-hidden="true">+</span>
+                    <span>Nová úloha</span>
+                </button>
+            {% endif %}
         </header>
 
+        <dialog class="task-form-dialog" id="add-task-dialog" aria-labelledby="add-task-title">
+            <header class="task-form-dialog-header">
+                <div>
+                    <p class="eyebrow">NOVÁ PRIPOMIENKA</p>
+                    <h2 id="add-task-title">Pridať úlohu</h2>
+                </div>
+                <button class="task-form-dialog-close" id="close-add-task" type="button"
+                        aria-label="Zavrieť okno">×</button>
+            </header>
         <form class="add-form" id="add-form" action="{{ url_for('add') }}" method="post">
+            <input type="hidden" name="return_to" value="tasks">
             <div class="field">
-                <label class="visually-hidden" for="todo">Nová úloha</label>
+                <label class="field-label" for="todo">Názov</label>
                 <input id="todo" type="text" name="todo" placeholder="Čo treba urobiť?"
                        aria-describedby="form-help" required>
             </div>
-            <div class="field">
+            <div class="field field--wide">
                 <span class="field-label" id="deadline-label">Termín dokončenia</span>
                 <div class="deadline-controls">
                     <button class="date-button" id="calendar-toggle" type="button"
@@ -484,17 +559,31 @@
                     </div>
                 </div>
             </div>
-            <p class="form-help" id="form-help">Vyplň názov úlohy. Termín s dátumom a hodinou je voliteľný. Zadaj hodinu a potom minúty bez dvojbodky; minúty sa zaokrúhlia na najbližších 5. Čas môžeš meniť aj šípkami pri poli, klávesmi ↑/↓ alebo kolieskom myši.</p>
+            <div class="field field--wide">
+                <label class="field-label" for="description">Popis</label>
+                <textarea id="description" name="description" rows="2"
+                          placeholder="Doplň podrobnosti k úlohe"></textarea>
+            </div>
+            <div class="field">
+                <label class="field-label" for="location">Miesto</label>
+                <input id="location" type="text" name="location" placeholder="Kde sa to uskutoční?">
+            </div>
+            <div class="field">
+                <label class="field-label" for="task-url">URL adresa</label>
+                <input id="task-url" type="url" name="url" placeholder="https://...">
+            </div>
+            <p class="form-help field--wide" id="form-help">Termín je voliteľný. Zadaj hodinu a potom minúty bez dvojbodky; minúty sa zaokrúhlia na najbližších 5. Čas môžeš meniť aj šípkami pri poli, klávesmi ↑/↓ alebo kolieskom myši.</p>
             <div class="form-actions">
                 <button class="add-button" id="save-task" type="submit">Pridať úlohu</button>
                 <button class="cancel-edit-button" id="cancel-edit" type="button" hidden>Zrušiť úpravu</button>
             </div>
         </form>
+        </dialog>
 
         <ul class="task-list{% if todos|length > 3 %} task-list--scrollable{% endif %}">
             {% for todo in todos %}
                 <li class="task{% if todo.done %} done{% endif %}">
-                    <form action="{{ url_for('toggle', idx=loop.index0) }}" method="post">
+                    <form action="{{ url_for('toggle', idx=todo.task_idx) }}" method="post">
                         <button class="toggle-button" type="submit"
                                 aria-label="{% if todo.done %}Označiť ako nesplnenú{% else %}Označiť ako splnenú{% endif %}">
                             {% if todo.done %}Znovu otvoriť{% else %}Dokončiť{% endif %}
@@ -502,18 +591,29 @@
                     </form>
                     <div class="task-content">
                         <span class="task-text">{{ todo.text }}</span>
+                        {% if todo.description %}
+                            <span class="task-detail">{{ todo.description }}</span>
+                        {% endif %}
                         {% if todo.due_at %}
                             <time class="due-date" datetime="{{ todo.due_at|replace(' ', 'T') }}">
                                 Termín: {{ todo.due_at|format_due_at }}
                             </time>
                         {% endif %}
+                        {% if todo.location %}
+                            <span class="task-detail">Miesto: {{ todo.location }}</span>
+                        {% endif %}
+                        {% if todo.url %}
+                            <a class="task-detail task-url" href="{{ todo.url }}" target="_blank" rel="noopener noreferrer">{{ todo.url }}</a>
+                        {% endif %}
                     </div>
                     <div class="task-actions">
                         <button class="edit-button" type="button"
-                                data-edit-action="{{ url_for('edit', idx=loop.index0) }}"
+                                data-edit-action="{{ url_for('edit', idx=todo.task_idx) }}"
                                 data-text="{{ todo.text }}" data-due-at="{{ todo.due_at }}"
+                                data-description="{{ todo.description }}" data-location="{{ todo.location }}"
+                                data-url="{{ todo.url }}"
                                 aria-label="Upraviť úlohu: {{ todo.text }}">Upraviť</button>
-                        <form action="{{ url_for('delete', idx=loop.index0) }}" method="post">
+                        <form action="{{ url_for('delete', idx=todo.task_idx) }}" method="post">
                             <button class="delete-button" type="submit">Odstrániť</button>
                         </form>
                     </div>
@@ -551,6 +651,7 @@
             <input id="reschedule-due-at" type="hidden" name="due_at">
         </form>
     </main>
+    </div>
     <script>
         const todoInput = document.getElementById("todo");
         const form = document.getElementById("add-form");
@@ -563,6 +664,7 @@
         const dueAtInput = document.getElementById("due_at");
         const saveTaskButton = document.getElementById("save-task");
         const cancelEditButton = document.getElementById("cancel-edit");
+        const addTaskDialog = document.getElementById("add-task-dialog");
         const addFormAction = form.action;
         const dayView = document.getElementById("day-view");
         const dayViewTitle = document.getElementById("day-view-title");
@@ -821,6 +923,9 @@
         function resetTaskForm() {
             form.action = addFormAction;
             todoInput.value = "";
+            document.getElementById("description").value = "";
+            document.getElementById("location").value = "";
+            document.getElementById("task-url").value = "";
             selectedDate = null;
             activeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
             dateButtonText.textContent = "Vybrať dátum";
@@ -835,8 +940,14 @@
         }
 
         function loadTaskForEditing(button) {
+            if (!addTaskDialog.open) {
+                addTaskDialog.showModal();
+            }
             form.action = button.dataset.editAction;
             todoInput.value = button.dataset.text;
+            document.getElementById("description").value = button.dataset.description;
+            document.getElementById("location").value = button.dataset.location;
+            document.getElementById("task-url").value = button.dataset.url;
             const dueAt = button.dataset.dueAt;
             if (dueAt) {
                 const [date, time] = dueAt.split("T");
@@ -857,7 +968,6 @@
             cancelEditButton.hidden = false;
             updateDeadline();
             todoInput.focus({ preventScroll: true });
-            form.scrollIntoView({ behavior: "smooth", block: "center" });
         }
 
         function createDayTaskCard(task) {
@@ -976,7 +1086,23 @@
         document.querySelectorAll(".edit-button").forEach((button) => {
             button.addEventListener("click", () => loadTaskForEditing(button));
         });
-        cancelEditButton.addEventListener("click", resetTaskForm);
+        document.getElementById("open-add-task")?.addEventListener("click", () => {
+            resetTaskForm();
+            addTaskDialog.showModal();
+            todoInput.focus();
+        });
+        document.getElementById("close-add-task").addEventListener("click", () => addTaskDialog.close());
+        addTaskDialog.addEventListener("close", resetTaskForm);
+        addTaskDialog.addEventListener("click", (event) => {
+            if (event.target === addTaskDialog) {
+                addTaskDialog.close();
+            }
+        });
+        if ({{ "true" if open_add_dialog else "false" }}) {
+            addTaskDialog.showModal();
+            todoInput.focus();
+        }
+        cancelEditButton.addEventListener("click", () => addTaskDialog.close());
         document.getElementById("close-day-view").addEventListener("click", () => dayView.close());
         dayView.addEventListener("close", () => {
             if (taskToEditAfterDayView) {
